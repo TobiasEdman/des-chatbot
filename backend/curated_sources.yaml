@@ -190,6 +190,86 @@ tier2_curated:
     description: "HR-VPP product description — phenology from Sentinel-2"
     tags: [hr-vpp, phenology, copernicus, vegetation]
 
+  # Vessel Detection (YOLO) — ImintEngine marine_vessels analyzer
+  - url: https://www.sciencedirect.com/science/article/pii/S0034425725001956
+    type: article
+    description: "Mapping recreational marine traffic from Sentinel-2 using YOLO (RSE 2025)"
+    tags: [yolo, vessel-detection, sentinel-2, marine, ship]
+
+  - url: https://www.mdpi.com/2072-4292/17/18/3170
+    type: article
+    description: "Enhancing YOLO-Based SAR Ship Detection with Attention (MDPI 2025)"
+    tags: [yolo, sar, sentinel-1, ship-detection, attention]
+
+  - url: https://www.tandfonline.com/doi/full/10.1080/17538947.2024.2405525
+    type: article
+    description: "YOLOSAR-Lite: Lightweight ship detection in SAR imagery (2024)"
+    tags: [yolo, sar, lightweight, real-time, SSDD]
+
+  # VedgeSat — ImintEngine vegetation_edge analyzer
+  - url: https://www.researchgate.net/publication/381435842
+    type: article
+    description: "Muir et al. (2024): VedgeSat — open-source toolkit for coastal change via vegetation edges"
+    tags: [vedgesat, coastline, vegetation-edge, sentinel-2, coastal-erosion]
+
+  - url: https://www.tandfonline.com/doi/full/10.1080/15481603.2025.2578778
+    type: article
+    description: "Coupling vegetation edges with other proxy metrics for coastal monitoring (2025)"
+    tags: [vedgesat, coastline, sentinel-2, geomorphology]
+
+  # Sentinel-3/4/5/6 missions (for general questions)
+  - url: https://sentinel.esa.int/en/web/sentinel/missions/sentinel-3/overview
+    type: docs
+    description: "Sentinel-3 — OLCI, SLSTR, altimetry for ocean/land/atmosphere"
+    tags: [sentinel-3, olci, slstr, ocean, sst, altimetry]
+
+  - url: https://www.esa.int/Applications/Observing_the_Earth/Copernicus/The_Sentinel_missions
+    type: docs
+    description: "ESA overview of all Sentinel missions (1-6)"
+    tags: [sentinel, copernicus, esa, missions, overview]
+
+  - url: https://sentinel.esa.int/web/sentinel/missions/sentinel-3
+    type: docs
+    description: "Sentinel-3 mission portal — instruments, products, orbits"
+    tags: [sentinel-3, ocean-colour, temperature, radar-altimeter]
+
+  # Swedish university research (EO + Sentinel)
+  - url: https://bg.copernicus.org/articles/22/1341/2025/bg-22-1341-2025.pdf
+    type: article
+    description: "Sentinel-2 reveals reduced winter wheat growth in Sweden (Biogeosciences 2025)"
+    tags: [sentinel-2, wheat, drought, sweden, lund]
+
+  - url: https://research.chalmers.se/en/publication/540471
+    type: article
+    description: "Chalmers: Tower-based vs satellite L/C-band radar backscatter, boreal forest"
+    tags: [chalmers, sentinel-1, sar, boreal, forest, borealscat]
+
+  - url: https://www.tandfonline.com/doi/full/10.1080/22797254.2025.2558614
+    type: article
+    description: "Early cereal yield prediction with ML + Sentinel-1/2 data (2025)"
+    tags: [crop-yield, sentinel-1, sentinel-2, machine-learning, sweden]
+
+  - url: https://www.nateko.lu.se/research/remote-sensing-and-earth-observation/lund-earth-observation-research-group
+    type: docs
+    description: "Lund University Earth Observation Research Group"
+    tags: [lund, remote-sensing, earth-observation, research]
+
+  - url: https://www.chalmers.se/en/departments/see/research/geo/
+    type: docs
+    description: "Chalmers Geoscience and Remote Sensing division"
+    tags: [chalmers, remote-sensing, sar, climate]
+
+  # Rymdstyrelsen conferences / reports
+  - url: https://www.rymdstyrelsen.se/rymddata/sweo2025/
+    type: docs
+    description: "SWEO2025 — Swedish Earth Observation conference (Oct 2025)"
+    tags: [sweo, rymdstyrelsen, conference, earth-observation]
+
+  - url: https://rymdstyrelsen.se/rymddata/utlysningar/klimat-och-miljo-2025--myndigheternas-klimat--miljo--och-hallbarhetsarbete-genom-anvandning-av-satellitdata/
+    type: docs
+    description: "Rymdstyrelsen utlysning Klimat och Miljö 2025 (20 MSEK)"
+    tags: [rymdstyrelsen, utlysning, klimat, miljo, satellitdata]
+
   # Foundation Models
   - url: https://huggingface.co/ibm-nasa-geospatial
     type: docs
