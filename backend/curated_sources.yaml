@@ -9,7 +9,7 @@
 #   python indexer.py curated
 
 tier1_auto:
-  # Digital Earth Sweden (primary)
+  # ── Digital Earth Sweden (primary) ────────────────────────────
   - url: https://digitalearth.se
     type: wordpress
     description: DES main site — all pages and posts
@@ -22,80 +22,215 @@ tier1_auto:
 
   - url: https://github.com/DigitalEarthSweden/digital-earth-sweden-community
     type: github
-    description: DES community tutorials and notebooks
+    description: DES community tutorials, workshops, notebooks
     schedule: weekly
 
-  - url: https://openeo.digitalearth.se
-    type: api_docs
-    description: DES openEO API documentation
+  - url: https://github.com/DigitalEarthSweden/openeo-processes
+    type: github
+    description: DES openEO process definitions
     schedule: monthly
 
+  # ── ImintEngine (public repo, user-facing docs only) ──────────
+  - url: https://github.com/TobiasEdman/imintengine
+    type: github
+    description: ImintEngine — README + analyzer docstrings + config
+    schedule: weekly
+    include:
+      - README.md
+      - config/analyzers.yaml
+      - imint/analyzers/*.py  # docstrings only
+    exclude:
+      - CLAUDE.md
+      - .env*
+      - imint/training/
+      - tests/
+
 tier2_curated:
-  # Copernicus / ESA
+  # ── ESA Sentinel Technical Documentation ──────────────────────
+  - url: https://sentinel.esa.int/en/web/sentinel/technical-guides/sentinel-2-msi
+    type: docs
+    description: Sentinel-2 MSI Technical Guide — bands, instrument, processing
+    tags: [sentinel-2, msi, bands, resolution]
+
+  - url: https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi
+    type: docs
+    description: Sentinel-2 MSI User Guide — products, levels, resolution
+    tags: [sentinel-2, user-guide, L1C, L2A]
+
+  - url: https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/spatial
+    type: docs
+    description: Sentinel-2 band specifications — 10m/20m/60m resolution
+    tags: [sentinel-2, bands, 10m, 20m, B02, B8A]
+
+  - url: https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-1-sar
+    type: docs
+    description: Sentinel-1 SAR Technical Guide
+    tags: [sentinel-1, sar, radar, IW, GRD]
+
+  - url: https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar
+    type: docs
+    description: Sentinel-1 SAR User Guide — products, polarization, orbits
+    tags: [sentinel-1, VV, VH, ascending, descending]
+
+  - url: https://sentinel.esa.int/documents/247904/685211/sentinel-2_user_handbook
+    type: pdf
+    description: Sentinel-2 User Handbook (PDF)
+    tags: [sentinel-2, handbook]
+
+  # ── Copernicus Services ───────────────────────────────────────
   - url: https://documentation.dataspace.copernicus.eu/
     type: docs
     description: Copernicus Data Space Ecosystem documentation
-    tags: [copernicus, sentinel, data-access]
+    tags: [copernicus, cdse, data-access, sentinel-hub]
 
-  - url: https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-2-msi
+  - url: https://land.copernicus.eu/en/products/vegetation
     type: docs
-    description: Sentinel-2 MSI user guide
-    tags: [sentinel-2, bands, resolution]
+    description: Copernicus HR-VPP — vegetation phenology products
+    tags: [hr-vpp, phenology, sosd, eosd, vegetation]
 
-  - url: https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-1-sar
+  # ── openEO ────────────────────────────────────────────────────
+  - url: https://openeo.org/documentation/1.0/
     type: docs
-    description: Sentinel-1 SAR user guide
-    tags: [sentinel-1, sar, radar]
+    description: openEO API specification and user docs
+    tags: [openeo, api, process-graphs, backends]
 
-  # Swedish authorities
+  # ── Swedish Authorities ───────────────────────────────────────
+  - url: https://www.rymdstyrelsen.se/rymddata/
+    type: docs
+    description: Rymdstyrelsen — rymddata, Copernicus, fjärranalys
+    tags: [rymdstyrelsen, snsa, copernicus, sweden]
+
+  - url: https://www.rymdstyrelsen.se/upptack-rymden/bloggen/2024/12/nyttan-med-data-fran-rymden/
+    type: article
+    description: "Rymdstyrelsen: Nyttan med data från rymden (2024)"
+    tags: [rymdstyrelsen, rymddata, samhällsnytta]
+
   - url: https://www.naturvardsverket.se/verktyg-och-tjanster/kartor-och-karttjanster/nationella-marktackedata/
     type: docs
     description: Naturvårdsverket NMD (Nationella Marktäckedata)
-    tags: [nmd, land-cover, sweden]
+    tags: [nmd, land-cover, naturvardsverket]
 
   - url: https://jordbruksverket.se/e-tjanster-databaser-och-appar/e-tjanster-och-databaser-stod/kartor-och-gis
     type: docs
-    description: Jordbruksverket GIS — LPIS blockdatabas
-    tags: [lpis, jordbruk, grödkoder]
+    description: Jordbruksverket GIS — LPIS blockdatabas, grödkoder
+    tags: [lpis, sjv, jordbruk, grodkoder]
 
   - url: https://www.smhi.se/data/oppna-data
     type: docs
     description: SMHI öppna data — väder, klimat, hydrologi
-    tags: [smhi, weather, climate]
+    tags: [smhi, weather, climate, era5]
 
-  - url: https://www.rymdstyrelsen.se/en/space-data-and-services2/
-    type: docs
-    description: Rymdstyrelsen — Swedish space data services
-    tags: [snsa, space, sweden]
+  # ── Kart & Bildteknik / Kartografiska Sällskapet ──────────────
+  - url: https://kartografiska.se/kunskapsbanken/kart-och-bildteknik/
+    type: article_index
+    description: "Kart- och Bildteknik artiklar — geodata, fjärranalys, GIS"
+    tags: [kart-bildteknik, kartografiska, gis, fjärranalys]
 
-  # Scientific references
+  # ── Vetenskapliga artiklar (välciterade, Scopus) ──────────────
+
+  # LULC / Land Cover
+  - url: https://www.mdpi.com/2072-4292/12/14/2291
+    type: article
+    description: "Phiri et al. (2020): Sentinel-2 Data for Land Cover/Use Mapping — A Review"
+    tags: [review, sentinel-2, lulc, land-cover]
+    citations: 800+
+
+  - url: https://www.nature.com/articles/s41598-020-74215-5
+    type: article
+    description: "Campos-Taberner et al. (2020): Understanding deep learning for land use classification from S2 time series"
+    tags: [deep-learning, sentinel-2, rnn, cap]
+    citations: 200+
+
+  - url: https://www.mdpi.com/2071-1050/17/22/10324
+    type: article
+    description: "Sentinel-2 LULC Classification: State-of-the-Art — Systematic Review (2025)"
+    tags: [review, sentinel-2, lulc, operational, accuracy]
+
+  # Crop Type Mapping
+  - url: https://www.sciencedirect.com/science/article/pii/S0034425721004284
+    type: article
+    description: "d'Andrimont et al. (2021): First EU-scale crop type map from S1 + LUCAS"
+    tags: [crop-mapping, sentinel-1, lucas, europe, eucropmap]
+    citations: 300+
+
+  - url: https://www.sciencedirect.com/science/article/pii/S0034425721005514
+    type: article
+    description: "Crop type mapping with S1+S2+Landsat8 for Germany (2021)"
+    tags: [crop-mapping, sentinel-1, sentinel-2, germany, time-series]
+    citations: 200+
+
+  - url: https://www.sciencedirect.com/science/article/pii/S0034425717304686
+    type: article
+    description: "Belgiu & Csillik (2018): S2 cropland mapping with TWDTW"
+    tags: [crop-mapping, sentinel-2, dtw, classification]
+    citations: 400+
+
   - url: https://essd.copernicus.org/articles/13/1119/2021/
     type: article
-    description: "LUCAS Copernicus 2018 — EU land cover/use dataset"
-    tags: [lucas, land-cover, training-data]
+    description: "LUCAS Copernicus 2018 — EU land cover/use in-situ dataset"
+    tags: [lucas, land-cover, training-data, eu]
+    citations: 200+
 
-  - url: https://openeo.org/documentation/1.0/
+  # InSAR / Subsidence
+  - url: https://www.sciencedirect.com/science/article/pii/S0012825222003233
+    type: article
+    description: "Review of satellite radar interferometry for subsidence analysis (2022)"
+    tags: [review, insar, subsidence, sentinel-1, ps-insar]
+    citations: 150+
+
+  - url: https://www.mdpi.com/2072-4292/10/7/1026
+    type: article
+    description: "Coherence Change-Detection with S1 for disaster monitoring (2018)"
+    tags: [change-detection, sentinel-1, coherence, disaster]
+    citations: 200+
+
+  # Vegetation / Phenology
+  - url: https://land.copernicus.eu/en/products/vegetation/high-resolution-vegetation-phenology-and-productivity
     type: docs
-    description: openEO API specification
-    tags: [openeo, api, process-graphs]
+    description: "HR-VPP product description — phenology from Sentinel-2"
+    tags: [hr-vpp, phenology, copernicus, vegetation]
 
-  # AI/EO foundation models
+  # Foundation Models
   - url: https://huggingface.co/ibm-nasa-geospatial
     type: docs
-    description: Prithvi EO foundation models (IBM/NASA)
-    tags: [prithvi, foundation-model, segmentation]
+    description: Prithvi EO foundation models (IBM/NASA) — HuggingFace
+    tags: [prithvi, foundation-model, segmentation, burn-scars]
 
   - url: https://clay-foundation.github.io/model/
     type: docs
-    description: Clay Foundation Model documentation
-    tags: [clay, foundation-model, embeddings]
+    description: Clay Foundation Model — self-supervised EO embeddings
+    tags: [clay, foundation-model, embeddings, apache-2.0]
+
+  # Swedish EO Reports
+  - url: https://www.naturvardsverket.se/publikationer/7000/978-91-620-7083-0/
+    type: report
+    description: "Satellitdata för miljöövervakning i Sverige (Naturvårdsverket)"
+    tags: [naturvardsverket, miljooevervakning, fjärranalys, sentinel]
+
+  - url: https://metria.se/kunskap/satellitdata/
+    type: docs
+    description: "Metria — satellitdata och fjärranalys för NMD"
+    tags: [metria, nmd, sentinel-2, land-cover]
+
+  # DES GitHub (additional repos)
+  - url: https://github.com/DigitalEarthSweden/ml-cloud-opt-thick
+    type: github
+    description: "DES ML cloud optical thickness paper + code"
+    tags: [des, ml, cloud, cot]
+
+  - url: https://github.com/DigitalEarthSweden/space-datalab-AI-pipelines
+    type: github
+    description: "DES Space Datalab AI pipelines"
+    tags: [des, ai, pipelines, space-datalab]
 
 tier3_blocked:
   # Never index these domains
-  - "*.social"           # Social media
+  - "*.social"
   - "reddit.com"
   - "twitter.com"
   - "facebook.com"
-  - "medium.com"         # Unverified blogs
+  - "medium.com"
   - "*.wordpress.com"    # Random WP blogs (NOT digitalearth.se)
-  - "stackoverflow.com"  # Code answers without EO context
+  - "stackoverflow.com"
+  - "chatgpt.com"
+  - "claude.ai"
