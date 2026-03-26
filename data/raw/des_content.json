@@ -872,5 +872,1483 @@
     "title": "space-datalab-AI-pipelines README",
     "url": "https://github.com/DigitalEarthSweden/space-datalab-AI-pipelines",
     "content": "# Satellite Cloud Detection PoC\n\nThis repo contains an integration of [ColonyOS](https://github.com/colonyos), [Digital Earth Sweden](https://github.com/DigitalEarthSweden), and [ML cloud detection models](https://github.com/aleksispi/ml-cloud-opt-thick) for automated satellite image filtering based on cloudiness.\n\nThese components taken together form a pipeline for distributed machine learning applied to earth observation data.\n\nThe work was co-developed with partners in the Space Data Lab 3.0 project.\n\n## Overview\n\nThis project uses trained machine learning models to analyze satellite imagery, filter out cloudy images, and download only cloud-free data. The system combines ColonyOS for distributed workflow orchestration.\n\nThe use of the pipeline is documented in the jupyter notebook contained in the repo.\n\n## Prerequisites\n\n- Docker\n- Docker Compose\n- ColonyOS\n\nFor detailed information about each component, refer to their respective repositories linked above.\n\n## Current Capabilities\n\n- Automated cloud detection in satellite imagery\n- Filtering based on cloudiness thresholds\n- Download orchestration for cloud-free images\n\n## Possible Future Roadmap\n\n### Large-Scale Data Processing\n\nExpand ColonyOS integration to process large volumes of satellite data for various applications, including machine learning dataset creation.\n\n### Enhanced User Interface\n\n- Interactive map interface for coordinate selection\n- Area-based image collection (bounding boxes)\n- Configurable time range queries\n- Batch download functionality\n\n### Real-Time Sweden Map\n\nDevelop a production system that generates daily cloud-free maps of Sweden:\n\n- Distributed processing across multiple executors\n- Grid-based map updates using masked approach\n- Near real-time continuous updates\n\n### Data Pipeline Infrastructure\n\nBuild flexible pipelines for supervised and unsupervised learning:\n\n- Complex workflow orchestration via ColonyOS\n- Automated data collection and processing\n- Large-scale dataset aggregation\n\n### Event Detection System\n\nDeploy pre-trained models for automated event monitoring:\n\n- Configurable spatial filters (local or global)\n- Real-time notifications for detected events\n- Continuous monitoring capability\n\n## Licensing and Copyright\n\nAll material in this repository follows the copyright and licensing as detailed in license.txt in the root directory of the repository.\n"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Enabling technologies and tools for digital twin",
+    "url": "https://doi.org/10.1016/j.jmsy.2019.10.001",
+    "content": "Enabling technologies and tools for digital twin. Published in Journal of Manufacturing Systems (2021). 1279 citations. Themes: Maskininlärning. Keywords: Digital twin | Enabling technologies | Enabling tools | Five-dimension model"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "The pollution conveyed by urban runoff: A review of sources",
+    "url": "https://doi.org/10.1016/j.scitotenv.2019.136125",
+    "content": "The pollution conveyed by urban runoff: A review of sources. Published in Science of the Total Environment (2020). 724 citations. Themes: Marktäcke & Kart.. Keywords: Emerging pollutants | Snowmelt quality | Source controls | Stormwater quality | Urban diffuse pollution"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "RIS-Aided Wireless Communications: Prototyping, Adaptive Beamforming, and Indoor/Outdoor Field Trials",
+    "url": "https://doi.org/10.1109/TCOMM.2021.3116151",
+    "content": "RIS-Aided Wireless Communications: Prototyping, Adaptive Beamforming, and Indoor/Outdoor Field Trials. Published in IEEE Transactions on Communications (2021). 448 citations. Themes: LiDAR & Laserskanning. Keywords: field trials | intelligent reflecting surface | IRS | LIS | massive MIMO | metamaterial | metasurface | MIMO | prototype | Reconfigurable intelligent surface | RIS"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Estimation of daily PM10 and PM2.5 concentrations in Italy, 2013–2015, using a spatiotemporal land-use random-forest model",
+    "url": "https://doi.org/10.1016/j.envint.2019.01.016",
+    "content": "Estimation of daily PM10 and PM2.5 concentrations in Italy, 2013–2015, using a spatiotemporal land-use random-forest model. Published in Environment International (2019). 359 citations. Themes: Skog & Vegetation. Keywords: Aerosol optical depth | Exposure assessment | Machine learning | Particulate matter | Random forest | Satellite"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Aboveground biomass density models for NASA's Global Ecosystem Dynamics Investigation (GEDI) lidar mission",
+    "url": "https://doi.org/10.1016/j.rse.2021.112845",
+    "content": "Aboveground biomass density models for NASA's Global Ecosystem Dynamics Investigation (GEDI) lidar mission. Published in Remote Sensing of Environment (2022). 352 citations. Themes: LiDAR & Laserskanning. Keywords: Aboveground biomass | Forest | GEDI | LiDAR | Modeling | Waveform"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Flood detection and susceptibility mapping using Sentinel-1 remote sensing data and a machine learning approach: Hybrid intelligence of bagging ensemble based on K-Nearest Neighbor classifier",
+    "url": "https://doi.org/10.3390/rs12020266",
+    "content": "Flood detection and susceptibility mapping using Sentinel-1 remote sensing data and a machine learning approach: Hybrid intelligence of bagging ensemble based on K-Nearest Neighbor classifier. Published in Remote Sensing (2020). 322 citations. Themes: Marktäcke & Kart., Sentinel & Copern., Vatten & Hydrologi, Maskininlärning. Keywords: Flood | Goodness-of-fit | Haraz | Iran | Machine learning | Overfitting | Remote sensing data"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "The European Space Agency BIOMASS mission: Measuring forest above-ground biomass from space",
+    "url": "https://doi.org/10.1016/j.rse.2019.03.032",
+    "content": "The European Space Agency BIOMASS mission: Measuring forest above-ground biomass from space. Published in Remote Sensing of Environment (2019). 304 citations. Themes: Skog & Vegetation, Marktäcke & Kart.. Keywords: Biomass | Carbon cycle | Forest disturbance | Forest height | Icesheet and glacier motion | Ionospheric effects | P-band SAR | Pol-InSAR | Polarimetry | Sub-surface imaging | Tomographic SAR | Unbiased DTM"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Radio Localization and Mapping with Reconfigurable Intelligent Surfaces: Challenges, Opportunities, and Research Directions",
+    "url": "https://doi.org/10.1109/MVT.2020.3023682",
+    "content": "Radio Localization and Mapping with Reconfigurable Intelligent Surfaces: Challenges, Opportunities, and Research Directions. Published in IEEE Vehicular Technology Magazine (2020). 294 citations. Themes: Marktäcke & Kart.. Keywords: "
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Channel Estimation for RIS-Aided mmWave MIMO Systems via Atomic Norm Minimization",
+    "url": "https://doi.org/10.1109/TWC.2021.3070064",
+    "content": "Channel Estimation for RIS-Aided mmWave MIMO Systems via Atomic Norm Minimization. Published in IEEE Transactions on Wireless Communications (2021). 281 citations. Themes: Hav & Marin. Keywords: Atomic norm minimization | channel parameter estimation | compressive sensing | millimeter wave MIMO | reconfigurable intelligent surface"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Janus-interface engineering boosting solar steam towards high-efficiency water collection",
+    "url": "https://doi.org/10.1039/d1ee01381e",
+    "content": "Janus-interface engineering boosting solar steam towards high-efficiency water collection. Published in Energy and Environmental Science (2021). 253 citations. Themes: Vatten & Hydrologi. Keywords: "
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Path Loss Modeling and Measurements for Reconfigurable Intelligent Surfaces in the Millimeter-Wave Frequency Band",
+    "url": "https://doi.org/10.1109/TCOMM.2022.3193400",
+    "content": "Path Loss Modeling and Measurements for Reconfigurable Intelligent Surfaces in the Millimeter-Wave Frequency Band. Published in IEEE Transactions on Communications (2022). 235 citations. Themes: Hav & Marin. Keywords: intelligent reflecting surface | metasurface | millimeter-wave | Path loss | reconfigurable intelligent surface | wireless propagation measurements"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Remote sensing in urban planning: Contributions towards ecologically sound policies?",
+    "url": "https://doi.org/10.1016/j.landurbplan.2020.103921",
+    "content": "Remote sensing in urban planning: Contributions towards ecologically sound policies?. Published in Landscape and Urban Planning (2020). 228 citations. Themes: Marktäcke & Kart.. Keywords: Earth observation | Ecosystem services | Open science | Science policy interface | Systematic literature review | Urban ecology"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Feedback between drought and deforestation in the Amazon",
+    "url": "https://doi.org/10.1088/1748-9326/ab738e",
+    "content": "Feedback between drought and deforestation in the Amazon. Published in Environmental Research Letters (2020). 187 citations. Themes: Skog & Vegetation. Keywords: Agriculture | Fire | Forest clearing | Land use change | Modeling | Moisture recycling | Remote sensing"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Challenges and best practices for deriving temperature data from an uncalibrated UAV thermal infrared camera",
+    "url": "https://doi.org/10.3390/rs11050567",
+    "content": "Challenges and best practices for deriving temperature data from an uncalibrated UAV thermal infrared camera. Published in Remote Sensing (2019). 171 citations. Themes: LiDAR & Laserskanning, UAV & Drönare. Keywords: Calibration | FLIR | NUC | Radiometric | Remote sensing | Temperature | Thermal infrared | UAS | UAV | Vignetting"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Harnessing NLOS Components for Position and Orientation Estimation in 5G Millimeter Wave MIMO",
+    "url": "https://doi.org/10.1109/TWC.2018.2877615",
+    "content": "Harnessing NLOS Components for Position and Orientation Estimation in 5G Millimeter Wave MIMO. Published in IEEE Transactions on Wireless Communications (2019). 164 citations. Themes: Hav & Marin. Keywords: 5G | Fisher information | millimeter wave | MIMO | position error bound"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Mangrove ecosystem mapping using sentinel-1 and sentinel-2 satellite images and random forest algorithm in google earth engine",
+    "url": "https://doi.org/10.3390/rs13132565",
+    "content": "Mangrove ecosystem mapping using sentinel-1 and sentinel-2 satellite images and random forest algorithm in google earth engine. Published in Remote Sensing (2021). 160 citations. Themes: Skog & Vegetation, Marktäcke & Kart., Sentinel & Copern., Maskininlärning. Keywords: Aerial roots | Google Earth Engine (GEE) | Mangrove ecosystem | Optical | Random forest (RF) | Sentinel | Synthetic aperture radar (SAR)"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Structural Origins of Light-Induced Phase Segregation in Organic-Inorganic Halide Perovskite Photovoltaic Materials",
+    "url": "https://doi.org/10.1016/j.matt.2019.11.001",
+    "content": "Structural Origins of Light-Induced Phase Segregation in Organic-Inorganic Halide Perovskite Photovoltaic Materials. Published in Matter (2020). 158 citations. Themes: LiDAR & Laserskanning. Keywords: crystal structure | MAP3: understanding | perovskite photovoltaics | phase diagram | phase segregation | photoluminescence | scanning electron microscopy | X-ray diffraction"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Adaptive Beamforming Design for mmWave RIS-Aided Joint Localization and Communication",
+    "url": "https://doi.org/10.1109/WCNCW48565.2020.9124848",
+    "content": "Adaptive Beamforming Design for mmWave RIS-Aided Joint Localization and Communication. Published in 2020 IEEE Wireless Communications and Networking Conference Workshops Wcncw 2020 Proceedings (2020). 157 citations. Themes: Hav & Marin. Keywords: Analog beamforming | feedback | hierarchical codebook | mmWave MIMO | reconfigurable intelligent surface"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Impact of climate change on groundwater hydrology: a comprehensive review and current status of the Indian hydrogeology",
+    "url": "https://doi.org/10.1007/s13201-022-01652-0",
+    "content": "Impact of climate change on groundwater hydrology: a comprehensive review and current status of the Indian hydrogeology. Published in Applied Water Science (2022). 156 citations. Themes: Vatten & Hydrologi. Keywords: Climate change | GRACE | Groundwater | Groundwater pollution | Sea-level rise | Water quality"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Large Intelligent Surface for Positioning in Millimeter Wave MIMO Systems",
+    "url": "https://doi.org/10.1109/VTC2020-Spring48590.2020.9129075",
+    "content": "Large Intelligent Surface for Positioning in Millimeter Wave MIMO Systems. Published in IEEE Vehicular Technology Conference (2020). 146 citations. Themes: Hav & Marin. Keywords: "
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Registration of Multimodal Remote Sensing Image Based on Deep Fully Convolutional Neural Network",
+    "url": "https://doi.org/10.1109/JSTARS.2019.2916560",
+    "content": "Registration of Multimodal Remote Sensing Image Based on Deep Fully Convolutional Neural Network. Published in IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (2019). 145 citations. Themes: Marktäcke & Kart., Maskininlärning. Keywords: Fully convolutional | hard negative sample | multimodal image registration | Siamese neural network"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "5G mmWave Cooperative Positioning and Mapping Using Multi-Model PHD Filter and Map Fusion",
+    "url": "https://doi.org/10.1109/TWC.2020.2978479",
+    "content": "5G mmWave Cooperative Positioning and Mapping Using Multi-Model PHD Filter and Map Fusion. Published in IEEE Transactions on Wireless Communications (2020). 143 citations. Themes: Marktäcke & Kart., Hav & Marin. Keywords: 5G millimeter-wave | cooperative positioning and mapping | map fusion | probability hypothesis density | vehicular networks"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "ENSO modulates wildfire activity in China",
+    "url": "https://doi.org/10.1038/s41467-021-21988-6",
+    "content": "ENSO modulates wildfire activity in China. Published in Nature Communications (2021). 143 citations. Themes: Skogsbrand. Keywords: "
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Applications of unmanned aerial vehicles in cryosphere: Latest advances and prospects",
+    "url": "https://doi.org/10.3390/rs12060948",
+    "content": "Applications of unmanned aerial vehicles in cryosphere: Latest advances and prospects. Published in Remote Sensing (2020). 142 citations. Themes: LiDAR & Laserskanning, UAV & Drönare. Keywords: Arctic | Cryosphere | Drone | Polar | Remote sensing | UAV | Unmanned aerial systems (UAS)"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Landslide susceptibility mapping using machine learning algorithms and remote sensing data in a tropical environment",
+    "url": "https://doi.org/10.3390/ijerph17144933",
+    "content": "Landslide susceptibility mapping using machine learning algorithms and remote sensing data in a tropical environment. Published in International Journal of Environmental Research and Public Health (2020). 138 citations. Themes: Marktäcke & Kart., Maskininlärning. Keywords: AdaBoost | Alternating decision tree | Cameron Highlands | Ensemble model | Machine learning | Malaysia"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Globally consistent climate sensitivity of natural disturbances across boreal and temperate forest ecosystems",
+    "url": "https://doi.org/10.1111/ecog.04995",
+    "content": "Globally consistent climate sensitivity of natural disturbances across boreal and temperate forest ecosystems. Published in Ecography (2020). 134 citations. Themes: Skog & Vegetation, Marktäcke & Kart.. Keywords: boreal forest | climate variability | disturbance regimes | remote sensing | spatial patterns | temperate forest"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Mechanically robust high flux graphene oxide - nanocellulose membranes for dye removal from water",
+    "url": "https://doi.org/10.1016/j.jhazmat.2019.03.009",
+    "content": "Mechanically robust high flux graphene oxide - nanocellulose membranes for dye removal from water. Published in Journal of Hazardous Materials (2019). 132 citations. Themes: Vatten & Hydrologi. Keywords: Adsorption | Graphene oxide | Mechanical properties | Nanocellulose | Separation membrane"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "A Review of Millimeter Wave Device-Based Localization and Device-Free Sensing Technologies and Applications",
+    "url": "https://doi.org/10.1109/COMST.2022.3177305",
+    "content": "A Review of Millimeter Wave Device-Based Localization and Device-Free Sensing Technologies and Applications. Published in IEEE Communications Surveys and Tutorials (2022). 132 citations. Themes: Hav & Marin. Keywords: channel models | communications | localization | Millimeter waves | practical constraints | propagation characteristics | radar | sensing"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Power Control in Cellular Massive MIMO with Varying User Activity: A Deep Learning Solution",
+    "url": "https://doi.org/10.1109/TWC.2020.2996368",
+    "content": "Power Control in Cellular Massive MIMO with Varying User Activity: A Deep Learning Solution. Published in IEEE Transactions on Wireless Communications (2020). 130 citations. Themes: Maskininlärning. Keywords: convolutional neural network | deep learning | Massive MIMO | pilot and data power control"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "LiteBIRD satellite: JAXA's new strategic L-class mission for all-sky surveys of cosmic microwave background polarization",
+    "url": "https://doi.org/10.1117/12.2563050",
+    "content": "LiteBIRD satellite: JAXA's new strategic L-class mission for all-sky surveys of cosmic microwave background polarization. Published in Proceedings of SPIE the International Society for Optical Engineering (2020). 129 citations. Themes: Hav & Marin. Keywords: B-mode polarization | Cosmic in ation | Cosmic microwave background | LiteBIRD | Primordial gravi- tational waves | Quantum gravity | Space telescope"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Forest biomass estimation over three distinct forest types using TanDEM-X InSAR data and simulated GEDI lidar data",
+    "url": "https://doi.org/10.1016/j.rse.2019.111283",
+    "content": "Forest biomass estimation over three distinct forest types using TanDEM-X InSAR data and simulated GEDI lidar data. Published in Remote Sensing of Environment (2019). 129 citations. Themes: Skog & Vegetation, SAR & Radar, Marktäcke & Kart., LiDAR & Laserskanning. Keywords: Forest biomass | Fusion | GEDI | Hierarchical model-based inference | Hybrid inference | InSAR | Lidar | TanDEM-X"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Performance evaluation of sentinel-2 and landsat 8 OLI data for land cover/use classification using a comparison between machine learning algorithms",
+    "url": "https://doi.org/10.3390/rs13071349",
+    "content": "Performance evaluation of sentinel-2 and landsat 8 OLI data for land cover/use classification using a comparison between machine learning algorithms. Published in Remote Sensing (2021). 122 citations. Themes: Marktäcke & Kart., Sentinel & Copern., Maskininlärning. Keywords: Classification accuracy | Land cover | Machine learning | Remote sensing | Saqqez | Satellite imagery"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Urban heat island effect-related mortality under extreme heat and non-extreme heat scenarios: A 2010–2019 case study in Hong Kong",
+    "url": "https://doi.org/10.1016/j.scitotenv.2022.159791",
+    "content": "Urban heat island effect-related mortality under extreme heat and non-extreme heat scenarios: A 2010–2019 case study in Hong Kong. Published in Science of the Total Environment (2023). 120 citations. Themes: Marktäcke & Kart.. Keywords: Elderly | Heat-mortality | Heatwave | Temperature | Urban heat island"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "A Wideband Reconfigurable Intelligent Surface for 5G Millimeter-Wave Applications",
+    "url": "https://doi.org/10.1109/TAP.2024.3352828",
+    "content": "A Wideband Reconfigurable Intelligent Surface for 5G Millimeter-Wave Applications. Published in IEEE Transactions on Antennas and Propagation (2024). 119 citations. Themes: Hav & Marin. Keywords: Beam scanning | fifth generation (5G) | mm-wave | reconfigurable intelligent surface (RIS) | wideband"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Flood susceptibility mapping and assessment using a novel deep learning model combining multilayer perceptron and autoencoder neural networks",
+    "url": "https://doi.org/10.1111/jfr3.12683",
+    "content": "Flood susceptibility mapping and assessment using a novel deep learning model combining multilayer perceptron and autoencoder neural networks. Published in Journal of Flood Risk Management (2021). 115 citations. Themes: Marktäcke & Kart., Vatten & Hydrologi, Maskininlärning. Keywords: deep learning | flood susceptibility | GIS | mapping | multilayer perceptron"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "The Solar Orbiter Radio and Plasma Waves (RPW) instrument",
+    "url": "https://doi.org/10.1051/0004-6361/201936214",
+    "content": "The Solar Orbiter Radio and Plasma Waves (RPW) instrument. Published in Astronomy and Astrophysics (2020). 115 citations. Themes: Hav & Marin. Keywords: Instrumentation: miscellaneous | Solar wind"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Towards delivering on the sustainable development goals using earth observations",
+    "url": "https://doi.org/10.1016/j.rse.2020.111930",
+    "content": "Towards delivering on the sustainable development goals using earth observations. Published in Remote Sensing of Environment (2020). 112 citations. Themes: Marktäcke & Kart., LiDAR & Laserskanning. Keywords: Earth observations | Geospatial information | Remote sensing | Satellite data | Statistics | Sustainable development | Sustainable development goals"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Building the Metaverse by Digital Twins at All Scales, State, Relation",
+    "url": "https://doi.org/10.1016/j.vrih.2022.06.005",
+    "content": "Building the Metaverse by Digital Twins at All Scales, State, Relation. Published in Virtual Reality and Intelligent Hardware (2022). 109 citations. Themes: Maskininlärning. Keywords: Digital Twins | Metaverse | Sensor"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "26.8-m THz wireless transmission of probabilistic shaping 16-QAM-OFDM signals",
+    "url": "https://doi.org/10.1063/5.0003998",
+    "content": "26.8-m THz wireless transmission of probabilistic shaping 16-QAM-OFDM signals. Published in APL Photonics (2020). 104 citations. Themes: LiDAR & Laserskanning. Keywords: "
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Generalization properties of neural network approximations to frustrated magnet ground states",
+    "url": "https://doi.org/10.1038/s41467-020-15402-w",
+    "content": "Generalization properties of neural network approximations to frustrated magnet ground states. Published in Nature Communications (2020). 104 citations. Themes: Maskininlärning. Keywords: "
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Forest biomass retrieval approaches from earth observation in different biomes",
+    "url": "https://doi.org/10.1016/j.jag.2018.12.008",
+    "content": "Forest biomass retrieval approaches from earth observation in different biomes. Published in International Journal of Applied Earth Observation and Geoinformation (2019). 103 citations. Themes: Skog & Vegetation, Marktäcke & Kart.. Keywords: Aboveground biomass | Carbon cycle | Forest biomes | Forest plots | LiDAR | Optical | SAR"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Anthropogenic transformation of Yangtze Plain freshwater lakes: patterns, drivers and impacts",
+    "url": "https://doi.org/10.1016/j.rse.2020.111998",
+    "content": "Anthropogenic transformation of Yangtze Plain freshwater lakes: patterns, drivers and impacts. Published in Remote Sensing of Environment (2020). 102 citations. Themes: Vatten & Hydrologi. Keywords: Freshwater | Lake reclamation | Landsat | Policy | Remote sensing | Sustainability | Yangtze"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "5G Positioning and Mapping with Diffuse Multipath",
+    "url": "https://doi.org/10.1109/TWC.2020.3031180",
+    "content": "5G Positioning and Mapping with Diffuse Multipath. Published in IEEE Transactions on Wireless Communications (2021). 101 citations. Themes: Marktäcke & Kart.. Keywords: beamspace ESPRIT | localization | Massive MIMO | subspace | tensor decomposition"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Survey on Communication and Networks for Autonomous Marine Systems",
+    "url": "https://doi.org/10.1007/s10846-018-0833-5",
+    "content": "Survey on Communication and Networks for Autonomous Marine Systems. Published in Journal of Intelligent and Robotic Systems Theory and Applications (2019). 100 citations. Themes: Hav & Marin. Keywords: Autonomous vehicles | Communication systems | Computer networks | Marine technology | Oceanographic techniques"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "A Global Model for Methylmercury Formation and Uptake at the Base of Marine Food Webs",
+    "url": "https://doi.org/10.1029/2019GB006348",
+    "content": "A Global Model for Methylmercury Formation and Uptake at the Base of Marine Food Webs. Published in Global Biogeochemical Cycles (2020). 99 citations. Themes: Hav & Marin. Keywords: DARWIN | mercury | methylmercury | MITgcm | trophic transfer"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Sentinel-1 InSAR Coherence for Land Cover Mapping: A Comparison of Multiple Feature-Based Classifiers",
+    "url": "https://doi.org/10.1109/JSTARS.2019.2958847",
+    "content": "Sentinel-1 InSAR Coherence for Land Cover Mapping: A Comparison of Multiple Feature-Based Classifiers. Published in IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (2020). 98 citations. Themes: SAR & Radar, Marktäcke & Kart., Sentinel & Copern.. Keywords: Copernicus | interferometric coherence | land cover mapping | Sentinel-1 | synthetic aperture radar (SAR)"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "On Unified Vehicular Communications and Radar Sensing in Millimeter-Wave and Low Terahertz Bands",
+    "url": "https://doi.org/10.1109/MWC.2019.1800328",
+    "content": "On Unified Vehicular Communications and Radar Sensing in Millimeter-Wave and Low Terahertz Bands. Published in IEEE Wireless Communications (2019). 96 citations. Themes: Hav & Marin. Keywords: "
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Integrating digital technologies in agriculture for climate change adaptation and mitigation: State of the art and future perspectives",
+    "url": "https://doi.org/10.1016/j.compag.2024.109412",
+    "content": "Integrating digital technologies in agriculture for climate change adaptation and mitigation: State of the art and future perspectives. Published in Computers and Electronics in Agriculture (2024). 93 citations. Themes: Jordbruk & Grödor. Keywords: Agriculture 4.0 | Climate change | Digital transformation | Digitalisation | Sustainability"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Millimeter-Wave Power Amplifier Integrated Circuits for High Dynamic Range Signals",
+    "url": "https://doi.org/10.1109/JMW.2020.3035897",
+    "content": "Millimeter-Wave Power Amplifier Integrated Circuits for High Dynamic Range Signals. Published in IEEE Journal of Microwaves (2021). 90 citations. Themes: LiDAR & Laserskanning, Hav & Marin. Keywords: 5G | 6G | dynamic range | energy efficiency | integrated circuits | millimeter-wave | mobile communication | OFDM | peak to average power ratio (PAPR) | power amplifier | quadrature amplitude modulation (QAM)"
+  },
+  {
+    "source": "kg_publication",
+    "type": "eo_article",
+    "title": "Global area boom for greenhouse cultivation revealed by satellite mapping",
+    "url": "https://doi.org/10.1038/s43016-024-00985-0",
+    "content": "Global area boom for greenhouse cultivation revealed by satellite mapping. Published in Nature Food (2024). 89 citations. Themes: Marktäcke & Kart.. Keywords: "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "SSC Space",
+    "content": "SSC Space. Swedish Space Corporation — uppskjutning, markstationer, rymdoperationer"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Beyond Gravity",
+    "content": "Beyond Gravity. Strukturer, separationssystem, Ariane 6-komponenter. Ny fabrik i Linköping (aug 2024)."
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "GKN Aerospace Sweden",
+    "content": "GKN Aerospace Sweden. Rymdframdrivning: Ariane 6-turbiner och dysor. SEK 600M investering i ny anläggning 2024."
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "AAC Clyde Space",
+    "content": "AAC Clyde Space. Mikro- och nanosatelliter, CubeSat-plattformar. Rekordår 2024: +28% omsättning, EBITDA 13.2%."
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Ovzon",
+    "content": "Ovzon. SATCOM-tjänster för mobila plattformar. Ovzon 3 i kommersiell drift juli 2024. EBITDA breakeven."
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "GomSpace Sweden",
+    "content": "GomSpace Sweden. Tidigare NanoSpace AB — förvärvat av GomSpace 2016"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Unibap",
+    "content": "Unibap. AI-processorer för rymd — iX-serien SpaceCloud. +80% omsättning 2024, första året med positiv EBIT."
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "AAC Omnisys",
+    "content": "AAC Omnisys. Mikrovågsinstrument för satelliter, submillimetervågs-mottagare. Formerly Omnisys Instruments (est. 1992)."
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Spacemetric",
+    "content": "Spacemetric. Automatisk processering av satellitbilder. Acquired by AAC Clyde Space 2024."
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Ericsson",
+    "content": "Ericsson. Telekommunikation — 6G, MIMO, satellitkommunikation"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Saab",
+    "content": "Saab. Rymdrelaterad försvarsverksamhet — radarsystem, EO"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "OHB Sweden",
+    "content": "OHB Sweden. Satellitsystem och rymdprojektledning"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "ECAPS",
+    "content": "ECAPS. Gröna framfrivningssystem — HPGP-thrustrar för rymdapplikationer"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Satcube",
+    "content": "Satcube. Portabla satellitkommunikationsterminaler. Ny fabrik i Karlstad 2024. Airbus-kontrakt 1 MEUR."
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "IRnova",
+    "content": "IRnova. Infraröda detektorer och bildgivare för rymd- och försvarsapplikationer"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Brockmann Geomatics",
+    "content": "Brockmann Geomatics. Fjärranalys av vattenresurser och kustövervakning med satellitdata"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Metria",
+    "content": "Metria. Geodata och GIS-tjänster — formerly Lantmäteriet's commercial division (corporatized 2011, sold to Spir Group 2022)"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Imsys",
+    "content": "Imsys. AI-processorer och neuromorfa chip för rymd- och edge-tillämpningar"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Scaleout Systems",
+    "content": "Scaleout Systems. Federerad maskininlärning — säker distribuerad AI för rymdsystem"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Bruhnbruhn Innovation",
+    "content": "Bruhnbruhn Innovation. DevSecOps och molnbaserade datatjänster för rymdsystem"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Vinterstellar",
+    "content": "Vinterstellar. Stationsunderhåll i GEO — satellitmanövrering och rymdlogistik"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "TimeZYX",
+    "content": "TimeZYX. Digitala tvillingar med geospatial jordobservationsdata för byggnader"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Cetasol",
+    "content": "Cetasol. AI-driven maritim insikt med satellitdata — havsövervakning i realtid"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Nornio",
+    "content": "Nornio. AI för kulturarv och landskapsanalys med satellitdata"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Total Digital IT Solutions",
+    "content": "Total Digital IT Solutions. InSAR-datafusion och LiDAR för infrastrukturövervakning"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Hushållningssällskapet Skåne",
+    "content": "Hushållningssällskapet Skåne. Jordbruksrådgivning — skördeprognoser med Sentinel-radardata"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Arkion Solutions",
+    "content": "Arkion Solutions. AI-driven inspektion och analys av elnät från flygbilder (f.d. Skyqraft)"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "APR Technologies",
+    "content": "APR Technologies. Termisk hantering för rymdfarkoster, flyg och fordon"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "AquaGuard Technologies",
+    "content": "AquaGuard Technologies. Satellitbaserad AI-övervakning av miljöfarligt marint avfall"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Arctic Space Technologies",
+    "content": "Arctic Space Technologies. Molnbaserade markstationstjänster för satellitdatahantering"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "BAETES Technologies",
+    "content": "BAETES Technologies. 3D-scanning och virtuella showrooms för e-handel"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "CarbonAct",
+    "content": "CarbonAct. Satellitbaserad verifiering av kolinlagring i jordbruksmark"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Cstrider",
+    "content": "Cstrider. Elektrifierat autonomt passagerarfärjesystem med GNSS-navigering"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "CyStellar",
+    "content": "CyStellar. Stordataanalys med satellitdata för lantbruk och försäkring"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Deep Forestry",
+    "content": "Deep Forestry. Drönare som 3D-skannar skog under trädkronorna"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Earthbanc",
+    "content": "Earthbanc. Klimat-fintech med satellitdata för koldioxidkompensation"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Eningo",
+    "content": "Eningo. GPS-baserad visualisering av nedgrävd infrastruktur"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Equestrian Insights",
+    "content": "Equestrian Insights. GPS-baserad app för spårning av ridträning (Equilab)"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Featherway Robotics",
+    "content": "Featherway Robotics. Robotarm med rymdteknologibaserad AI (nedlagd)"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Flywheelone",
+    "content": "Flywheelone. Kompakt träningsutrustning utvecklad för rymduppdrag"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Fourth State Systems",
+    "content": "Fourth State Systems. Blodgasmätning genom huden med sensorteknik från planetutforskning"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Fureho",
+    "content": "Fureho. 3D-kompositmaterial i kolfiber och keramik för rymdtillämpningar"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Geografiska Informationsbyrån",
+    "content": "Geografiska Informationsbyrån. Satellitbildsanalys för beslutsstöd inom jordbruk och skogsbruk"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Green Emissions",
+    "content": "Green Emissions. Koldioxidkompensation med satellitövervakning och blockkedjeteknik"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Green Urbansights",
+    "content": "Green Urbansights. Satellitdata och AI för klimatanpassad stadsplanering"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Hydromars",
+    "content": "Hydromars. Vattenrenings- och återvinningsteknik för långvariga rymduppdrag"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "I-CONIC Vision",
+    "content": "I-CONIC Vision. Realtids-3D/4D-modellering från satellit- och drönarbilder"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "InfiniNode Technologies",
+    "content": "InfiniNode Technologies. Skalbara lösningar för minneshantering och processorkommunikation"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "KARL Irrigation",
+    "content": "KARL Irrigation. Satellitbaserad bevattningsplanering med AI och agronomiska modeller"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Kravi Analytics",
+    "content": "Kravi Analytics. Satellitbaserad havsövervakning för skydd av marina resurser"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Lumeo Technology",
+    "content": "Lumeo Technology. Fästgränssnitt för bärbar elektronik och smarta textilier"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Mantis Photonics",
+    "content": "Mantis Photonics. Hyperspektral kamera för näthinneavbildning och sjukdomsscreening"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Monava",
+    "content": "Monava. Akustiska sensorsystem för lavin- och drönardetektering med AI"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Mooringo",
+    "content": "Mooringo. App för att hitta och boka lediga båtplatser med satellitdata"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Vantor",
+    "content": "Vantor. 3D geodata, visualization and image processing. Linköping office at Ebbepark/Science Park. SOFF member. Electro-optical EO legacy."
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "NCI Sports Tracker",
+    "content": "NCI Sports Tracker. Högprecisions utomhuspositionering för sport-TV och analys"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Norbite",
+    "content": "Norbite. Återvinner plastavfall till hållbar mat via insektsbaserat bioraffinaderi"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Nordic MicroAvionics",
+    "content": "Nordic MicroAvionics. MEMS-baserade mikroframdrivningssystem för CubeSat-satelliter"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Northern Waves",
+    "content": "Northern Waves. 3D-printade mikrovågskomponenter för satellitkommunikation och 5G/6G"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "PACK AWAY",
+    "content": "PACK AWAY. Hållbar förpackning av tång, 100% komposterbar"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "PandionAI",
+    "content": "PandionAI. AI-baserad bildtolkning ombord på jordobservationssatelliter"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "PARSEC",
+    "content": "PARSEC. Certifiering och utbildning av kommersiella astronauter"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "PASQ Space Qualification",
+    "content": "PASQ Space Qualification. Oberoende rymdkvalificering och testning av satellitutrustning"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Percyroc",
+    "content": "Percyroc. AI-driven mikrovågsteknik för snabb härdning av kolfiberkompositer"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Pileus Scandinavia",
+    "content": "Pileus Scandinavia. Isdetektering och prognos för vindkraftverk med AI och kameror"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Primover Technologies",
+    "content": "Primover Technologies. Ny typ av elektrisk framdrivning för satelliter med hög dragkraft"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "PROCADA",
+    "content": "PROCADA. Additiv tillverkning med laser-metalltråd för rymd och flyg"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Rebase Energy",
+    "content": "Rebase Energy. Väderdatadriven energiprognostisering och optimering"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Remos Space Systems",
+    "content": "Remos Space Systems. Mjukvarudefinierad radio för satellitmarkstationer"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Sally R",
+    "content": "Sally R. Rymdteknikbaserad optimering av ventilation och inomhusklimat"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Simactis Spatial Intelligence",
+    "content": "Simactis Spatial Intelligence. AI-simulering av transport och stadsplanering med satellitdata"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Sol-ionics",
+    "content": "Sol-ionics. Halogenfria jonvätskor för smörjning i rymdmiljö"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Solinide Photonics",
+    "content": "Solinide Photonics. Fotonikchip med mikrokammar för datacenter och satellitkommunikation"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Spacept",
+    "content": "Spacept. AI och satellitbilder för övervakning av kritisk infrastruktur"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Tenutec",
+    "content": "Tenutec. Grafenbaserade nanofluider för termisk hantering i elektronik"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "TeraSi",
+    "content": "TeraSi. Miniatyriserade millimetervågskomponenter för rymd och 6G"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "The Code Company",
+    "content": "The Code Company. Satellitbaserad detektion av stormskadad skog (Fallen Trees)"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Vimotek",
+    "content": "Vimotek. Multispektral kamera och AI för autonoma satellitoperationer"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Vultus",
+    "content": "Vultus. Satellitbaserad precisionsodling och kväverekommendationer. No longer active."
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Zarvan Tech",
+    "content": "Zarvan Tech. Molnbaserad geodataplattform med 3D-visualisering och AI"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Widefind",
+    "content": "Widefind. 3D-positioneringssystem för gruvor och industrimiljöer (förvärvat)"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Gemometrics",
+    "content": "Gemometrics. Optisk identifiering av ädelstenar och mineraler med GemPen"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Centropy",
+    "content": "Centropy. Kolfiberbaserade kylningslösningar för elektronik och rymd"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Greenlytics",
+    "content": "Greenlytics. Väderdatadriven energiprognostisering (nu Rebase Energy)"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "porkchop",
+    "content": "porkchop. Återanvändbar rymdlogistik med mikro-vakuumbågethrustrar (nedlagd)"
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Frontgrade Gaisler",
+    "content": "Frontgrade Gaisler. Strålningshärdade processorer (LEON) och IP-cores för rymd. Världsledande inom rad-hard SPARC-processorer."
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Forsway",
+    "content": "Forsway. Satellitbredband — teknik för bredbandsåtkomst via satellit. SMART 6GSAT-partner, SpaceWest-partner."
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "AFRY",
+    "content": "AFRY. Internationellt teknik- och konsultföretag. Rymdrelaterad ingenjörstjänst. SpaceWest-partner."
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Final Frontier",
+    "content": "Final Frontier. Rymdteknikföretag. SpaceWest-partner."
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "AAC Clyde Space",
+    "content": "AAC Clyde Space. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Omnisys Instruments",
+    "content": "Omnisys Instruments. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "SMHI",
+    "content": "SMHI. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Lantmäteriet",
+    "content": "Lantmäteriet. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Equestrian Insights AB former Schvung Ride",
+    "content": "Equestrian Insights AB former Schvung Ride. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Geografiska Informationsbyrån",
+    "content": "Geografiska Informationsbyrån. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "I-CONIC Vision",
+    "content": "I-CONIC Vision. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "PARSEC",
+    "content": "PARSEC. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "PASQ Space Qualification",
+    "content": "PASQ Space Qualification. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Simactis Spatial Intelligence",
+    "content": "Simactis Spatial Intelligence. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Unibap AB",
+    "content": "Unibap AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Schvung Ride",
+    "content": "Schvung Ride. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Skyqraft",
+    "content": "Skyqraft. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Green Urbansights AB",
+    "content": "Green Urbansights AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "PandionAI AB",
+    "content": "PandionAI AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Hydromars AB (publ)",
+    "content": "Hydromars AB (publ). "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Timezyx AB",
+    "content": "Timezyx AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "The Innovation Growhouse Stockholm AB",
+    "content": "The Innovation Growhouse Stockholm AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Halespace",
+    "content": "Halespace. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "SSC (Swedish Space Corporation)",
+    "content": "SSC (Swedish Space Corporation). "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "GKN Aerospace Sweden AB",
+    "content": "GKN Aerospace Sweden AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Halespace AB",
+    "content": "Halespace AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Qamcom",
+    "content": "Qamcom. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Aerospace Cluster Sweden (ACS) ek fÃ¶r",
+    "content": "Aerospace Cluster Sweden (ACS) ek fÃ¶r. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "GKN Aerospace",
+    "content": "GKN Aerospace. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Arctic Business Incubator AB",
+    "content": "Arctic Business Incubator AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Lindholmen Science Park AB",
+    "content": "Lindholmen Science Park AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "LantmÃ¤teriet",
+    "content": "LantmÃ¤teriet. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "HIPOR Materials AB",
+    "content": "HIPOR Materials AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "RISE IVF AB",
+    "content": "RISE IVF AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Aktiebolaget Scarab Development",
+    "content": "Aktiebolaget Scarab Development. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "APR TECHNOLOGIES AB",
+    "content": "APR TECHNOLOGIES AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Ã…AC Microtec AB",
+    "content": "Ã…AC Microtec AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Swedish Space Travel Alliance",
+    "content": "Swedish Space Travel Alliance. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Omnisys Instruments Aktiebolag",
+    "content": "Omnisys Instruments Aktiebolag. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "KraviAnalytics AB",
+    "content": "KraviAnalytics AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Simactis Spatial Intelligence AB",
+    "content": "Simactis Spatial Intelligence AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Northern Waves AB",
+    "content": "Northern Waves AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Volvo",
+    "content": "Volvo. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Scania",
+    "content": "Scania. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "ReQuTech AB",
+    "content": "ReQuTech AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "SATCUBE AB",
+    "content": "SATCUBE AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Xspectre AB",
+    "content": "Xspectre AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Arboair AB",
+    "content": "Arboair AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Ecogain AB",
+    "content": "Ecogain AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "OVERHORIZON AB",
+    "content": "OVERHORIZON AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Scania CV Aktiebolag",
+    "content": "Scania CV Aktiebolag. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Forsway Scandinavia AB",
+    "content": "Forsway Scandinavia AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Stift Skogsbrukets Forskningsinstitut Skogfor",
+    "content": "Stift Skogsbrukets Forskningsinstitut Skogfor. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "FluxSense AB",
+    "content": "FluxSense AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "I-CONIC Vision AB",
+    "content": "I-CONIC Vision AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "OHB SWEDEN AB",
+    "content": "OHB SWEDEN AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "IVL SVENSKA MILJÃ–INSTITUTET AB",
+    "content": "IVL SVENSKA MILJÃ–INSTITUTET AB. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Saab Technologies (ST Airborne Systems)",
+    "content": "Saab Technologies (ST Airborne Systems). "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Unibap Space Solutions AB (publ)",
+    "content": "Unibap Space Solutions AB (publ). "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Telia",
+    "content": "Telia. "
+  },
+  {
+    "source": "kg_company",
+    "type": "company",
+    "title": "Carmenta",
+    "content": "Carmenta. "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
+  },
+  {
+    "source": "kg_project",
+    "type": "project",
+    "title": "",
+    "content": "Project: None. Programme: . Budget: "
   }
 ]

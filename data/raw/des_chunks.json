@@ -777,6 +777,13 @@
     "source": "imintengine"
   },
   {
+    "id": "5d1653e7149b",
+    "text": "imint/analyzers/grazing.py — Grazing activity classifier (pib-ml-grazing) CNN-biLSTM model from RISE Research Institutes of Sweden that classifies Sentinel-2 timeseries as \"active grazing\" or \"no activity\". Reference: https://github.com/aleksispi/pib-ml-grazing License: MIT (RISE Research Institutes of Sweden, 2025)",
+    "title": "Analyzer: grazing",
+    "url": "https://github.com/TobiasEdman/imintengine/blob/main/imint/analyzers/grazing.py",
+    "source": "imintengine"
+  },
+  {
     "id": "83b590cd481e",
     "text": "imint/analyzers/marine_vessels.py — Marine vessel detection from Sentinel-2 Detects marine vessels (including small pleasure crafts) using a YOLO11s model fine-tuned on Sentinel-2 L1C-TCI imagery. Uses SAHI sliding-window inference to handle large images and merges overlapping predictions. Based on: Mäyrä et al. (2025) \"Mapping recreational marine traffic from Sentinel-2 imagery using YOLO object detection models\", Remote Sensing of Environment. Model weights: https://huggingface.co/mayrajeo/marine-vessel-yolo",
     "title": "Analyzer: marine_vessels",
@@ -791,6 +798,13 @@
     "source": "imintengine"
   },
   {
+    "id": "c5ddc4c9e865",
+    "text": "imint/analyzers/object_detection.py — Object detection analyzer Two modes: - heatmap (default): variance-based anomaly detection per patch. No model or extra dependencies needed. - model: YOLO inference via ultralytics. Requires a .pt weights file.",
+    "title": "Analyzer: object_detection",
+    "url": "https://github.com/TobiasEdman/imintengine/blob/main/imint/analyzers/object_detection.py",
+    "source": "imintengine"
+  },
+  {
     "id": "70e088f8e397",
     "text": "imint/analyzers/prithvi.py — Prithvi-EO-2.0 Foundation Model analyzer Runs IBM/NASA Prithvi-EO-2.0 (ViT with 3D MAE, trained on HLS Sentinel-2) for feature extraction or segmentation. Two modes: - embeddings (default): Extract backbone features. Returns embedding arrays and spatial statistics. Useful for downstream tasks, clustering, or feeding into other models. - segmentation: Run a fine-tuned segmentation head. Requires a saved model checkpoint (config: model_path). Returns per-pixel class map. Loading priority: 1. TerraTorch (pip install terratorch) — full framework, many models 2. Direct HuggingFace loading — uses bundled prithvi_mae.py (torch only) Band requirements: B02, B03, B04, B8A (not B08!), B11, B12 These map to HLS bands B02–B07: Blue, Green, Red, Narrow NIR, SWIR1, SWIR2. The model expects DN-scale inputs (not [0,1] reflectance) and normalizes internally using its trained mean/std statistics.",
     "title": "Analyzer: prithvi",
@@ -802,6 +816,13 @@
     "text": "imint/analyzers/shoreline.py — Shoreline detection via spectral indices Detects water–land boundaries using NDWI (Normalized Difference Water Index) and MNDWI (Modified NDWI) with Otsu thresholding — the same proven approach used by CoastSat (Vos et al., 2019). Spectral indices: NDWI = (Green − NIR) / (Green + NIR) → B03, B08 MNDWI = (Green − SWIR) / (Green + SWIR) → B03, B11 The analyzer produces: - 4-class segmentation map: water / shallow water / sediment / land - Binary water mask - Shoreline edge contours (vectorised) - Per-class statistics Reference: Vos et al. (2019), \"CoastSat: A Google Earth Engine-enabled Python toolkit to extract shorelines from publicly available satellite imagery\", Environmental Modelling & Software, 122, 104528.",
     "title": "Analyzer: shoreline",
     "url": "https://github.com/TobiasEdman/imintengine/blob/main/imint/analyzers/shoreline.py",
+    "source": "imintengine"
+  },
+  {
+    "id": "53f87738e672",
+    "text": "imint/analyzers/spectral.py — Spectral index analyzer Computes NDVI, NDWI, NDBI, EVI, and NBR from Sentinel-2 bands. NBR (Normalized Burn Ratio) = (B08 - B12) / (B08 + B12) measures burn severity. Falls back to RGB approximations if spectral bands are missing.",
+    "title": "Analyzer: spectral",
+    "url": "https://github.com/TobiasEdman/imintengine/blob/main/imint/analyzers/spectral.py",
     "source": "imintengine"
   },
   {
@@ -866,5 +887,292 @@
     "title": "space-datalab-AI-pipelines README",
     "url": "https://github.com/DigitalEarthSweden/space-datalab-AI-pipelines",
     "source": "des-github"
+  },
+  {
+    "id": "979833d3e0ad",
+    "text": "Enabling technologies and tools for digital twin. Published in Journal of Manufacturing Systems (2021). 1279 citations. Themes: Maskininlärning. Keywords: Digital twin | Enabling technologies | Enabling tools | Five-dimension model",
+    "title": "Enabling technologies and tools for digital twin",
+    "url": "https://doi.org/10.1016/j.jmsy.2019.10.001",
+    "source": "kg_publication"
+  },
+  {
+    "id": "f143062bac0c",
+    "text": "The pollution conveyed by urban runoff: A review of sources. Published in Science of the Total Environment (2020). 724 citations. Themes: Marktäcke & Kart.. Keywords: Emerging pollutants | Snowmelt quality | Source controls | Stormwater quality | Urban diffuse pollution",
+    "title": "The pollution conveyed by urban runoff: A review of sources",
+    "url": "https://doi.org/10.1016/j.scitotenv.2019.136125",
+    "source": "kg_publication"
+  },
+  {
+    "id": "623728f5b815",
+    "text": "RIS-Aided Wireless Communications: Prototyping, Adaptive Beamforming, and Indoor/Outdoor Field Trials. Published in IEEE Transactions on Communications (2021). 448 citations. Themes: LiDAR & Laserskanning. Keywords: field trials | intelligent reflecting surface | IRS | LIS | massive MIMO | metamaterial | metasurface | MIMO | prototype | Reconfigurable intelligent surface | RIS",
+    "title": "RIS-Aided Wireless Communications: Prototyping, Adaptive Beamforming, and Indoor/Outdoor Field Trials",
+    "url": "https://doi.org/10.1109/TCOMM.2021.3116151",
+    "source": "kg_publication"
+  },
+  {
+    "id": "db1c1e12911b",
+    "text": "Estimation of daily PM10 and PM2.5 concentrations in Italy, 2013–2015, using a spatiotemporal land-use random-forest model. Published in Environment International (2019). 359 citations. Themes: Skog & Vegetation. Keywords: Aerosol optical depth | Exposure assessment | Machine learning | Particulate matter | Random forest | Satellite",
+    "title": "Estimation of daily PM10 and PM2.5 concentrations in Italy, 2013–2015, using a spatiotemporal land-use random-forest model",
+    "url": "https://doi.org/10.1016/j.envint.2019.01.016",
+    "source": "kg_publication"
+  },
+  {
+    "id": "7a9e655c8847",
+    "text": "Aboveground biomass density models for NASA's Global Ecosystem Dynamics Investigation (GEDI) lidar mission. Published in Remote Sensing of Environment (2022). 352 citations. Themes: LiDAR & Laserskanning. Keywords: Aboveground biomass | Forest | GEDI | LiDAR | Modeling | Waveform",
+    "title": "Aboveground biomass density models for NASA's Global Ecosystem Dynamics Investigation (GEDI) lidar mission",
+    "url": "https://doi.org/10.1016/j.rse.2021.112845",
+    "source": "kg_publication"
+  },
+  {
+    "id": "fb50c3348e79",
+    "text": "Flood detection and susceptibility mapping using Sentinel-1 remote sensing data and a machine learning approach: Hybrid intelligence of bagging ensemble based on K-Nearest Neighbor classifier. Published in Remote Sensing (2020). 322 citations. Themes: Marktäcke & Kart., Sentinel & Copern., Vatten & Hydrologi, Maskininlärning. Keywords: Flood | Goodness-of-fit | Haraz | Iran | Machine learning | Overfitting | Remote sensing data",
+    "title": "Flood detection and susceptibility mapping using Sentinel-1 remote sensing data and a machine learning approach: Hybrid intelligence of bagging ensemble based on K-Nearest Neighbor classifier",
+    "url": "https://doi.org/10.3390/rs12020266",
+    "source": "kg_publication"
+  },
+  {
+    "id": "960be24a7f0d",
+    "text": "The European Space Agency BIOMASS mission: Measuring forest above-ground biomass from space. Published in Remote Sensing of Environment (2019). 304 citations. Themes: Skog & Vegetation, Marktäcke & Kart.. Keywords: Biomass | Carbon cycle | Forest disturbance | Forest height | Icesheet and glacier motion | Ionospheric effects | P-band SAR | Pol-InSAR | Polarimetry | Sub-surface imaging | Tomographic SAR | Unbiased DTM",
+    "title": "The European Space Agency BIOMASS mission: Measuring forest above-ground biomass from space",
+    "url": "https://doi.org/10.1016/j.rse.2019.03.032",
+    "source": "kg_publication"
+  },
+  {
+    "id": "4ad7f383ad4e",
+    "text": "Channel Estimation for RIS-Aided mmWave MIMO Systems via Atomic Norm Minimization. Published in IEEE Transactions on Wireless Communications (2021). 281 citations. Themes: Hav & Marin. Keywords: Atomic norm minimization | channel parameter estimation | compressive sensing | millimeter wave MIMO | reconfigurable intelligent surface",
+    "title": "Channel Estimation for RIS-Aided mmWave MIMO Systems via Atomic Norm Minimization",
+    "url": "https://doi.org/10.1109/TWC.2021.3070064",
+    "source": "kg_publication"
+  },
+  {
+    "id": "a45ab770276a",
+    "text": "Path Loss Modeling and Measurements for Reconfigurable Intelligent Surfaces in the Millimeter-Wave Frequency Band. Published in IEEE Transactions on Communications (2022). 235 citations. Themes: Hav & Marin. Keywords: intelligent reflecting surface | metasurface | millimeter-wave | Path loss | reconfigurable intelligent surface | wireless propagation measurements",
+    "title": "Path Loss Modeling and Measurements for Reconfigurable Intelligent Surfaces in the Millimeter-Wave Frequency Band",
+    "url": "https://doi.org/10.1109/TCOMM.2022.3193400",
+    "source": "kg_publication"
+  },
+  {
+    "id": "418c018332ec",
+    "text": "Remote sensing in urban planning: Contributions towards ecologically sound policies?. Published in Landscape and Urban Planning (2020). 228 citations. Themes: Marktäcke & Kart.. Keywords: Earth observation | Ecosystem services | Open science | Science policy interface | Systematic literature review | Urban ecology",
+    "title": "Remote sensing in urban planning: Contributions towards ecologically sound policies?",
+    "url": "https://doi.org/10.1016/j.landurbplan.2020.103921",
+    "source": "kg_publication"
+  },
+  {
+    "id": "cc91ab219c12",
+    "text": "Feedback between drought and deforestation in the Amazon. Published in Environmental Research Letters (2020). 187 citations. Themes: Skog & Vegetation. Keywords: Agriculture | Fire | Forest clearing | Land use change | Modeling | Moisture recycling | Remote sensing",
+    "title": "Feedback between drought and deforestation in the Amazon",
+    "url": "https://doi.org/10.1088/1748-9326/ab738e",
+    "source": "kg_publication"
+  },
+  {
+    "id": "b57da34bb391",
+    "text": "Challenges and best practices for deriving temperature data from an uncalibrated UAV thermal infrared camera. Published in Remote Sensing (2019). 171 citations. Themes: LiDAR & Laserskanning, UAV & Drönare. Keywords: Calibration | FLIR | NUC | Radiometric | Remote sensing | Temperature | Thermal infrared | UAS | UAV | Vignetting",
+    "title": "Challenges and best practices for deriving temperature data from an uncalibrated UAV thermal infrared camera",
+    "url": "https://doi.org/10.3390/rs11050567",
+    "source": "kg_publication"
+  },
+  {
+    "id": "d5a886a42849",
+    "text": "Harnessing NLOS Components for Position and Orientation Estimation in 5G Millimeter Wave MIMO. Published in IEEE Transactions on Wireless Communications (2019). 164 citations. Themes: Hav & Marin. Keywords: 5G | Fisher information | millimeter wave | MIMO | position error bound",
+    "title": "Harnessing NLOS Components for Position and Orientation Estimation in 5G Millimeter Wave MIMO",
+    "url": "https://doi.org/10.1109/TWC.2018.2877615",
+    "source": "kg_publication"
+  },
+  {
+    "id": "de9bba6a95ce",
+    "text": "Mangrove ecosystem mapping using sentinel-1 and sentinel-2 satellite images and random forest algorithm in google earth engine. Published in Remote Sensing (2021). 160 citations. Themes: Skog & Vegetation, Marktäcke & Kart., Sentinel & Copern., Maskininlärning. Keywords: Aerial roots | Google Earth Engine (GEE) | Mangrove ecosystem | Optical | Random forest (RF) | Sentinel | Synthetic aperture radar (SAR)",
+    "title": "Mangrove ecosystem mapping using sentinel-1 and sentinel-2 satellite images and random forest algorithm in google earth engine",
+    "url": "https://doi.org/10.3390/rs13132565",
+    "source": "kg_publication"
+  },
+  {
+    "id": "5729ae4716d1",
+    "text": "Structural Origins of Light-Induced Phase Segregation in Organic-Inorganic Halide Perovskite Photovoltaic Materials. Published in Matter (2020). 158 citations. Themes: LiDAR & Laserskanning. Keywords: crystal structure | MAP3: understanding | perovskite photovoltaics | phase diagram | phase segregation | photoluminescence | scanning electron microscopy | X-ray diffraction",
+    "title": "Structural Origins of Light-Induced Phase Segregation in Organic-Inorganic Halide Perovskite Photovoltaic Materials",
+    "url": "https://doi.org/10.1016/j.matt.2019.11.001",
+    "source": "kg_publication"
+  },
+  {
+    "id": "4a52e59654b8",
+    "text": "Adaptive Beamforming Design for mmWave RIS-Aided Joint Localization and Communication. Published in 2020 IEEE Wireless Communications and Networking Conference Workshops Wcncw 2020 Proceedings (2020). 157 citations. Themes: Hav & Marin. Keywords: Analog beamforming | feedback | hierarchical codebook | mmWave MIMO | reconfigurable intelligent surface",
+    "title": "Adaptive Beamforming Design for mmWave RIS-Aided Joint Localization and Communication",
+    "url": "https://doi.org/10.1109/WCNCW48565.2020.9124848",
+    "source": "kg_publication"
+  },
+  {
+    "id": "2d64cf2e6eb7",
+    "text": "Impact of climate change on groundwater hydrology: a comprehensive review and current status of the Indian hydrogeology. Published in Applied Water Science (2022). 156 citations. Themes: Vatten & Hydrologi. Keywords: Climate change | GRACE | Groundwater | Groundwater pollution | Sea-level rise | Water quality",
+    "title": "Impact of climate change on groundwater hydrology: a comprehensive review and current status of the Indian hydrogeology",
+    "url": "https://doi.org/10.1007/s13201-022-01652-0",
+    "source": "kg_publication"
+  },
+  {
+    "id": "4b101044ed56",
+    "text": "Registration of Multimodal Remote Sensing Image Based on Deep Fully Convolutional Neural Network. Published in IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (2019). 145 citations. Themes: Marktäcke & Kart., Maskininlärning. Keywords: Fully convolutional | hard negative sample | multimodal image registration | Siamese neural network",
+    "title": "Registration of Multimodal Remote Sensing Image Based on Deep Fully Convolutional Neural Network",
+    "url": "https://doi.org/10.1109/JSTARS.2019.2916560",
+    "source": "kg_publication"
+  },
+  {
+    "id": "f92fd8efa9cf",
+    "text": "5G mmWave Cooperative Positioning and Mapping Using Multi-Model PHD Filter and Map Fusion. Published in IEEE Transactions on Wireless Communications (2020). 143 citations. Themes: Marktäcke & Kart., Hav & Marin. Keywords: 5G millimeter-wave | cooperative positioning and mapping | map fusion | probability hypothesis density | vehicular networks",
+    "title": "5G mmWave Cooperative Positioning and Mapping Using Multi-Model PHD Filter and Map Fusion",
+    "url": "https://doi.org/10.1109/TWC.2020.2978479",
+    "source": "kg_publication"
+  },
+  {
+    "id": "80256806aa5d",
+    "text": "Applications of unmanned aerial vehicles in cryosphere: Latest advances and prospects. Published in Remote Sensing (2020). 142 citations. Themes: LiDAR & Laserskanning, UAV & Drönare. Keywords: Arctic | Cryosphere | Drone | Polar | Remote sensing | UAV | Unmanned aerial systems (UAS)",
+    "title": "Applications of unmanned aerial vehicles in cryosphere: Latest advances and prospects",
+    "url": "https://doi.org/10.3390/rs12060948",
+    "source": "kg_publication"
+  },
+  {
+    "id": "6e0bfdd193c3",
+    "text": "Landslide susceptibility mapping using machine learning algorithms and remote sensing data in a tropical environment. Published in International Journal of Environmental Research and Public Health (2020). 138 citations. Themes: Marktäcke & Kart., Maskininlärning. Keywords: AdaBoost | Alternating decision tree | Cameron Highlands | Ensemble model | Machine learning | Malaysia",
+    "title": "Landslide susceptibility mapping using machine learning algorithms and remote sensing data in a tropical environment",
+    "url": "https://doi.org/10.3390/ijerph17144933",
+    "source": "kg_publication"
+  },
+  {
+    "id": "b4b40dddc73f",
+    "text": "Globally consistent climate sensitivity of natural disturbances across boreal and temperate forest ecosystems. Published in Ecography (2020). 134 citations. Themes: Skog & Vegetation, Marktäcke & Kart.. Keywords: boreal forest | climate variability | disturbance regimes | remote sensing | spatial patterns | temperate forest",
+    "title": "Globally consistent climate sensitivity of natural disturbances across boreal and temperate forest ecosystems",
+    "url": "https://doi.org/10.1111/ecog.04995",
+    "source": "kg_publication"
+  },
+  {
+    "id": "4288e9151ce9",
+    "text": "Mechanically robust high flux graphene oxide - nanocellulose membranes for dye removal from water. Published in Journal of Hazardous Materials (2019). 132 citations. Themes: Vatten & Hydrologi. Keywords: Adsorption | Graphene oxide | Mechanical properties | Nanocellulose | Separation membrane",
+    "title": "Mechanically robust high flux graphene oxide - nanocellulose membranes for dye removal from water",
+    "url": "https://doi.org/10.1016/j.jhazmat.2019.03.009",
+    "source": "kg_publication"
+  },
+  {
+    "id": "7106d14d6c87",
+    "text": "A Review of Millimeter Wave Device-Based Localization and Device-Free Sensing Technologies and Applications. Published in IEEE Communications Surveys and Tutorials (2022). 132 citations. Themes: Hav & Marin. Keywords: channel models | communications | localization | Millimeter waves | practical constraints | propagation characteristics | radar | sensing",
+    "title": "A Review of Millimeter Wave Device-Based Localization and Device-Free Sensing Technologies and Applications",
+    "url": "https://doi.org/10.1109/COMST.2022.3177305",
+    "source": "kg_publication"
+  },
+  {
+    "id": "6a38dd76bf2d",
+    "text": "Power Control in Cellular Massive MIMO with Varying User Activity: A Deep Learning Solution. Published in IEEE Transactions on Wireless Communications (2020). 130 citations. Themes: Maskininlärning. Keywords: convolutional neural network | deep learning | Massive MIMO | pilot and data power control",
+    "title": "Power Control in Cellular Massive MIMO with Varying User Activity: A Deep Learning Solution",
+    "url": "https://doi.org/10.1109/TWC.2020.2996368",
+    "source": "kg_publication"
+  },
+  {
+    "id": "ea0f995c4801",
+    "text": "LiteBIRD satellite: JAXA's new strategic L-class mission for all-sky surveys of cosmic microwave background polarization. Published in Proceedings of SPIE the International Society for Optical Engineering (2020). 129 citations. Themes: Hav & Marin. Keywords: B-mode polarization | Cosmic in ation | Cosmic microwave background | LiteBIRD | Primordial gravi- tational waves | Quantum gravity | Space telescope",
+    "title": "LiteBIRD satellite: JAXA's new strategic L-class mission for all-sky surveys of cosmic microwave background polarization",
+    "url": "https://doi.org/10.1117/12.2563050",
+    "source": "kg_publication"
+  },
+  {
+    "id": "b2968bd9edfb",
+    "text": "Forest biomass estimation over three distinct forest types using TanDEM-X InSAR data and simulated GEDI lidar data. Published in Remote Sensing of Environment (2019). 129 citations. Themes: Skog & Vegetation, SAR & Radar, Marktäcke & Kart., LiDAR & Laserskanning. Keywords: Forest biomass | Fusion | GEDI | Hierarchical model-based inference | Hybrid inference | InSAR | Lidar | TanDEM-X",
+    "title": "Forest biomass estimation over three distinct forest types using TanDEM-X InSAR data and simulated GEDI lidar data",
+    "url": "https://doi.org/10.1016/j.rse.2019.111283",
+    "source": "kg_publication"
+  },
+  {
+    "id": "c3bbe9c1403e",
+    "text": "Performance evaluation of sentinel-2 and landsat 8 OLI data for land cover/use classification using a comparison between machine learning algorithms. Published in Remote Sensing (2021). 122 citations. Themes: Marktäcke & Kart., Sentinel & Copern., Maskininlärning. Keywords: Classification accuracy | Land cover | Machine learning | Remote sensing | Saqqez | Satellite imagery",
+    "title": "Performance evaluation of sentinel-2 and landsat 8 OLI data for land cover/use classification using a comparison between machine learning algorithms",
+    "url": "https://doi.org/10.3390/rs13071349",
+    "source": "kg_publication"
+  },
+  {
+    "id": "881d3ab9ecfb",
+    "text": "Urban heat island effect-related mortality under extreme heat and non-extreme heat scenarios: A 2010–2019 case study in Hong Kong. Published in Science of the Total Environment (2023). 120 citations. Themes: Marktäcke & Kart.. Keywords: Elderly | Heat-mortality | Heatwave | Temperature | Urban heat island",
+    "title": "Urban heat island effect-related mortality under extreme heat and non-extreme heat scenarios: A 2010–2019 case study in Hong Kong",
+    "url": "https://doi.org/10.1016/j.scitotenv.2022.159791",
+    "source": "kg_publication"
+  },
+  {
+    "id": "12b0bf32942c",
+    "text": "A Wideband Reconfigurable Intelligent Surface for 5G Millimeter-Wave Applications. Published in IEEE Transactions on Antennas and Propagation (2024). 119 citations. Themes: Hav & Marin. Keywords: Beam scanning | fifth generation (5G) | mm-wave | reconfigurable intelligent surface (RIS) | wideband",
+    "title": "A Wideband Reconfigurable Intelligent Surface for 5G Millimeter-Wave Applications",
+    "url": "https://doi.org/10.1109/TAP.2024.3352828",
+    "source": "kg_publication"
+  },
+  {
+    "id": "e84daecbbb10",
+    "text": "Flood susceptibility mapping and assessment using a novel deep learning model combining multilayer perceptron and autoencoder neural networks. Published in Journal of Flood Risk Management (2021). 115 citations. Themes: Marktäcke & Kart., Vatten & Hydrologi, Maskininlärning. Keywords: deep learning | flood susceptibility | GIS | mapping | multilayer perceptron",
+    "title": "Flood susceptibility mapping and assessment using a novel deep learning model combining multilayer perceptron and autoencoder neural networks",
+    "url": "https://doi.org/10.1111/jfr3.12683",
+    "source": "kg_publication"
+  },
+  {
+    "id": "c50cb4842d9c",
+    "text": "Towards delivering on the sustainable development goals using earth observations. Published in Remote Sensing of Environment (2020). 112 citations. Themes: Marktäcke & Kart., LiDAR & Laserskanning. Keywords: Earth observations | Geospatial information | Remote sensing | Satellite data | Statistics | Sustainable development | Sustainable development goals",
+    "title": "Towards delivering on the sustainable development goals using earth observations",
+    "url": "https://doi.org/10.1016/j.rse.2020.111930",
+    "source": "kg_publication"
+  },
+  {
+    "id": "4c7bb33244af",
+    "text": "Building the Metaverse by Digital Twins at All Scales, State, Relation. Published in Virtual Reality and Intelligent Hardware (2022). 109 citations. Themes: Maskininlärning. Keywords: Digital Twins | Metaverse | Sensor",
+    "title": "Building the Metaverse by Digital Twins at All Scales, State, Relation",
+    "url": "https://doi.org/10.1016/j.vrih.2022.06.005",
+    "source": "kg_publication"
+  },
+  {
+    "id": "721f069e1a68",
+    "text": "Forest biomass retrieval approaches from earth observation in different biomes. Published in International Journal of Applied Earth Observation and Geoinformation (2019). 103 citations. Themes: Skog & Vegetation, Marktäcke & Kart.. Keywords: Aboveground biomass | Carbon cycle | Forest biomes | Forest plots | LiDAR | Optical | SAR",
+    "title": "Forest biomass retrieval approaches from earth observation in different biomes",
+    "url": "https://doi.org/10.1016/j.jag.2018.12.008",
+    "source": "kg_publication"
+  },
+  {
+    "id": "3c2268fc8556",
+    "text": "Anthropogenic transformation of Yangtze Plain freshwater lakes: patterns, drivers and impacts. Published in Remote Sensing of Environment (2020). 102 citations. Themes: Vatten & Hydrologi. Keywords: Freshwater | Lake reclamation | Landsat | Policy | Remote sensing | Sustainability | Yangtze",
+    "title": "Anthropogenic transformation of Yangtze Plain freshwater lakes: patterns, drivers and impacts",
+    "url": "https://doi.org/10.1016/j.rse.2020.111998",
+    "source": "kg_publication"
+  },
+  {
+    "id": "3255421484c0",
+    "text": "5G Positioning and Mapping with Diffuse Multipath. Published in IEEE Transactions on Wireless Communications (2021). 101 citations. Themes: Marktäcke & Kart.. Keywords: beamspace ESPRIT | localization | Massive MIMO | subspace | tensor decomposition",
+    "title": "5G Positioning and Mapping with Diffuse Multipath",
+    "url": "https://doi.org/10.1109/TWC.2020.3031180",
+    "source": "kg_publication"
+  },
+  {
+    "id": "3c34a3b039dc",
+    "text": "Survey on Communication and Networks for Autonomous Marine Systems. Published in Journal of Intelligent and Robotic Systems Theory and Applications (2019). 100 citations. Themes: Hav & Marin. Keywords: Autonomous vehicles | Communication systems | Computer networks | Marine technology | Oceanographic techniques",
+    "title": "Survey on Communication and Networks for Autonomous Marine Systems",
+    "url": "https://doi.org/10.1007/s10846-018-0833-5",
+    "source": "kg_publication"
+  },
+  {
+    "id": "6ea182e660c7",
+    "text": "A Global Model for Methylmercury Formation and Uptake at the Base of Marine Food Webs. Published in Global Biogeochemical Cycles (2020). 99 citations. Themes: Hav & Marin. Keywords: DARWIN | mercury | methylmercury | MITgcm | trophic transfer",
+    "title": "A Global Model for Methylmercury Formation and Uptake at the Base of Marine Food Webs",
+    "url": "https://doi.org/10.1029/2019GB006348",
+    "source": "kg_publication"
+  },
+  {
+    "id": "ea522037ba97",
+    "text": "Sentinel-1 InSAR Coherence for Land Cover Mapping: A Comparison of Multiple Feature-Based Classifiers. Published in IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (2020). 98 citations. Themes: SAR & Radar, Marktäcke & Kart., Sentinel & Copern.. Keywords: Copernicus | interferometric coherence | land cover mapping | Sentinel-1 | synthetic aperture radar (SAR)",
+    "title": "Sentinel-1 InSAR Coherence for Land Cover Mapping: A Comparison of Multiple Feature-Based Classifiers",
+    "url": "https://doi.org/10.1109/JSTARS.2019.2958847",
+    "source": "kg_publication"
+  },
+  {
+    "id": "bab3ba9ccbc8",
+    "text": "Integrating digital technologies in agriculture for climate change adaptation and mitigation: State of the art and future perspectives. Published in Computers and Electronics in Agriculture (2024). 93 citations. Themes: Jordbruk & Grödor. Keywords: Agriculture 4.0 | Climate change | Digital transformation | Digitalisation | Sustainability",
+    "title": "Integrating digital technologies in agriculture for climate change adaptation and mitigation: State of the art and future perspectives",
+    "url": "https://doi.org/10.1016/j.compag.2024.109412",
+    "source": "kg_publication"
+  },
+  {
+    "id": "7c9db694ca33",
+    "text": "Millimeter-Wave Power Amplifier Integrated Circuits for High Dynamic Range Signals. Published in IEEE Journal of Microwaves (2021). 90 citations. Themes: LiDAR & Laserskanning, Hav & Marin. Keywords: 5G | 6G | dynamic range | energy efficiency | integrated circuits | millimeter-wave | mobile communication | OFDM | peak to average power ratio (PAPR) | power amplifier | quadrature amplitude modulation (QAM)",
+    "title": "Millimeter-Wave Power Amplifier Integrated Circuits for High Dynamic Range Signals",
+    "url": "https://doi.org/10.1109/JMW.2020.3035897",
+    "source": "kg_publication"
   }
 ]
