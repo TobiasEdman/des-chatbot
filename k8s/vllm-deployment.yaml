@@ -1,7 +1,7 @@
 # vLLM serving Mistral-7B-Instruct-v0.3 on an NVIDIA GPU node.
 #
 # ICE Connect EKC specifics:
-#   - nodeSelector "gpu-type: nvidia-2080ti" pins the pod to nodes with
+#   - nodeSelector "accelerator: nvidia-gtx-2080ti" pins the pod to nodes with
 #     RTX 2080 Ti GPUs. Adjust the value if your cluster labels GPU nodes
 #     differently (e.g. nvidia-a100, nvidia-t4).
 #   - The NVIDIA device plugin must be installed on the cluster so that
@@ -13,7 +13,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vllm-mistral
-  namespace: des-chatbot
+  namespace: prithvi-training-default
   labels:
     app: vllm
     app.kubernetes.io/part-of: des-chatbot
@@ -29,17 +29,21 @@ spec:
     spec:
       # ICE Connect: schedule on GPU-equipped nodes only.
       nodeSelector:
-        gpu-type: nvidia-2080ti
+        accelerator: nvidia-gtx-2080ti
       containers:
         - name: vllm
           image: vllm/vllm-openai:latest
           args:
             - "--model"
-            - "mistralai/Mistral-7B-Instruct-v0.3"
+            - "TheBloke/Mistral-7B-Instruct-v0.2-AWQ"
+            - "--quantization"
+            - "awq"
             - "--max-model-len"
-            - "8192"
+            - "4096"
             - "--gpu-memory-utilization"
             - "0.90"
+            - "--dtype"
+            - "float16"
           ports:
             - name: http
               containerPort: 8000
@@ -82,7 +86,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: vllm
-  namespace: des-chatbot
+  namespace: prithvi-training-default
   labels:
     app: vllm
     app.kubernetes.io/part-of: des-chatbot
