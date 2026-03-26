@@ -32,7 +32,7 @@ spec:
         accelerator: nvidia-gtx-2080ti
       containers:
         - name: vllm
-          image: vllm/vllm-openai:latest
+          image: vllm/vllm-openai:v0.6.6.post1
           args:
             - "--model"
             - "TheBloke/Mistral-7B-Instruct-v0.2-AWQ"
@@ -44,6 +44,7 @@ spec:
             - "0.90"
             - "--dtype"
             - "float16"
+            - "--enforce-eager"
           ports:
             - name: http
               containerPort: 8000
@@ -67,16 +68,17 @@ spec:
             httpGet:
               path: /health
               port: http
-            initialDelaySeconds: 120   # model loading takes time
+            initialDelaySeconds: 300   # AWQ model load + torch.compile takes ~3-4 min
             periodSeconds: 10
             timeoutSeconds: 5
-            failureThreshold: 30       # allow up to ~5 min for large model load
+            failureThreshold: 60       # allow up to ~10 min total
           livenessProbe:
             httpGet:
               path: /health
               port: http
-            initialDelaySeconds: 180
+            initialDelaySeconds: 360   # must be > readiness initial delay
             periodSeconds: 30
+            failureThreshold: 10
             timeoutSeconds: 5
             failureThreshold: 5
       # Give the model time to download and load into GPU memory.
