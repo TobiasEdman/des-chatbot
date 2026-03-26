@@ -1,0 +1,79 @@
+# RAG API -- the main chatbot backend that talks to vLLM and Qdrant.
+# Image is built from the project Dockerfile (des-chatbot-api:latest).
+# Update the image reference to your registry path before deploying,
+# e.g. registry.ice-connect.se/des-chatbot/des-chatbot-api:latest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rag-api
+  namespace: des-chatbot
+  labels:
+    app: rag-api
+    app.kubernetes.io/part-of: des-chatbot
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rag-api
+  template:
+    metadata:
+      labels:
+        app: rag-api
+    spec:
+      containers:
+        - name: rag-api
+          image: des-chatbot-api:latest
+          # Set to IfNotPresent when using a local/private registry;
+          # change to Always if you push :latest tags frequently.
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          env:
+            - name: VLLM_URL
+              value: "http://vllm:8000/v1"
+            - name: QDRANT_URL
+              value: "http://qdrant:6333"
+          resources:
+            requests:
+              cpu: "4"
+              memory: "8Gi"
+            limits:
+              cpu: "4"
+              memory: "8Gi"
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            timeoutSeconds: 3
+            failureThreshold: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rag-api
+  namespace: des-chatbot
+  labels:
+    app: rag-api
+    app.kubernetes.io/part-of: des-chatbot
+spec:
+  type: ClusterIP
+  selector:
+    app: rag-api
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+      protocol: TCP

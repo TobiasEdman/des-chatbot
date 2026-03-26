@@ -1,0 +1,101 @@
+# DES Chatbot — Curated Knowledge Sources
+#
+# Three tiers:
+#   tier1: Auto-indexed (crawled automatically on schedule)
+#   tier2: Curated (manually approved URLs, indexed on update)
+#   tier3: Never indexed (explicitly blocked)
+#
+# To add a new source: add URL to tier2, run:
+#   python indexer.py curated
+
+tier1_auto:
+  # Digital Earth Sweden (primary)
+  - url: https://digitalearth.se
+    type: wordpress
+    description: DES main site — all pages and posts
+    schedule: weekly
+
+  - url: https://explorer.digitalearth.se/stac
+    type: stac
+    description: DES STAC catalog — all datasets
+    schedule: daily
+
+  - url: https://github.com/DigitalEarthSweden/digital-earth-sweden-community
+    type: github
+    description: DES community tutorials and notebooks
+    schedule: weekly
+
+  - url: https://openeo.digitalearth.se
+    type: api_docs
+    description: DES openEO API documentation
+    schedule: monthly
+
+tier2_curated:
+  # Copernicus / ESA
+  - url: https://documentation.dataspace.copernicus.eu/
+    type: docs
+    description: Copernicus Data Space Ecosystem documentation
+    tags: [copernicus, sentinel, data-access]
+
+  - url: https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-2-msi
+    type: docs
+    description: Sentinel-2 MSI user guide
+    tags: [sentinel-2, bands, resolution]
+
+  - url: https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-1-sar
+    type: docs
+    description: Sentinel-1 SAR user guide
+    tags: [sentinel-1, sar, radar]
+
+  # Swedish authorities
+  - url: https://www.naturvardsverket.se/verktyg-och-tjanster/kartor-och-karttjanster/nationella-marktackedata/
+    type: docs
+    description: Naturvårdsverket NMD (Nationella Marktäckedata)
+    tags: [nmd, land-cover, sweden]
+
+  - url: https://jordbruksverket.se/e-tjanster-databaser-och-appar/e-tjanster-och-databaser-stod/kartor-och-gis
+    type: docs
+    description: Jordbruksverket GIS — LPIS blockdatabas
+    tags: [lpis, jordbruk, grödkoder]
+
+  - url: https://www.smhi.se/data/oppna-data
+    type: docs
+    description: SMHI öppna data — väder, klimat, hydrologi
+    tags: [smhi, weather, climate]
+
+  - url: https://www.rymdstyrelsen.se/en/space-data-and-services2/
+    type: docs
+    description: Rymdstyrelsen — Swedish space data services
+    tags: [snsa, space, sweden]
+
+  # Scientific references
+  - url: https://essd.copernicus.org/articles/13/1119/2021/
+    type: article
+    description: "LUCAS Copernicus 2018 — EU land cover/use dataset"
+    tags: [lucas, land-cover, training-data]
+
+  - url: https://openeo.org/documentation/1.0/
+    type: docs
+    description: openEO API specification
+    tags: [openeo, api, process-graphs]
+
+  # AI/EO foundation models
+  - url: https://huggingface.co/ibm-nasa-geospatial
+    type: docs
+    description: Prithvi EO foundation models (IBM/NASA)
+    tags: [prithvi, foundation-model, segmentation]
+
+  - url: https://clay-foundation.github.io/model/
+    type: docs
+    description: Clay Foundation Model documentation
+    tags: [clay, foundation-model, embeddings]
+
+tier3_blocked:
+  # Never index these domains
+  - "*.social"           # Social media
+  - "reddit.com"
+  - "twitter.com"
+  - "facebook.com"
+  - "medium.com"         # Unverified blogs
+  - "*.wordpress.com"    # Random WP blogs (NOT digitalearth.se)
+  - "stackoverflow.com"  # Code answers without EO context

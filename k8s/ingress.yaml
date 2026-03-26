@@ -1,0 +1,48 @@
+# Ingress for chat.digitalearth.se -> rag-api:8080
+#
+# ICE Connect EKC specifics:
+#   - Assumes the NGINX Ingress Controller is installed in the cluster.
+#   - TLS is handled by cert-manager with a ClusterIssuer named
+#     "letsencrypt-prod". Change the issuer name if your cluster uses a
+#     different one (e.g. "letsencrypt-staging" for testing).
+#   - Rate limiting annotations protect the API from abuse. Adjust the
+#     values to match your expected traffic patterns.
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: des-chatbot-ingress
+  namespace: des-chatbot
+  labels:
+    app.kubernetes.io/part-of: des-chatbot
+  annotations:
+    # TLS certificate management via cert-manager.
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+
+    # NGINX Ingress Controller annotations.
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "120"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "120"
+
+    # Rate limiting -- per client IP.
+    # 10 requests/second with a burst of 20.
+    nginx.ingress.kubernetes.io/limit-rps: "10"
+    nginx.ingress.kubernetes.io/limit-burst-multiplier: "2"
+    nginx.ingress.kubernetes.io/limit-connections: "5"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - chat.digitalearth.se
+      secretName: chat-digitalearth-se-tls
+  rules:
+    - host: chat.digitalearth.se
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rag-api
+                port:
+                  number: 8080

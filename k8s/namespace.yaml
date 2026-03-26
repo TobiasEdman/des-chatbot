@@ -1,0 +1,9 @@
+# Namespace for the DES Chatbot application stack.
+# All resources (vLLM, RAG API, Qdrant, Ingress, Secrets) live here.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: des-chatbot
+  labels:
+    app.kubernetes.io/part-of: des-chatbot
+    app.kubernetes.io/managed-by: kustomize

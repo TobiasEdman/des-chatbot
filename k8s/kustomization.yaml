@@ -1,0 +1,22 @@
+# Kustomization file for the DES Chatbot stack.
+#
+# Deploy everything with:
+#   kubectl apply -k /path/to/k8s/
+#
+# Or preview the rendered manifests with:
+#   kubectl kustomize /path/to/k8s/
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: des-chatbot
+
+resources:
+  - namespace.yaml
+  - secrets.yaml
+  - qdrant-statefulset.yaml
+  - vllm-deployment.yaml
+  - rag-api-deployment.yaml
+  - ingress.yaml
+
+commonLabels:
+  app.kubernetes.io/part-of: des-chatbot

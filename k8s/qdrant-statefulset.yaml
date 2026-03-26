@@ -1,0 +1,100 @@
+# Qdrant vector database -- used by the RAG API for document retrieval.
+#
+# ICE Connect EKC storage specifics:
+#   - storageClassName is set to "cephfs". This assumes ICE Connect EKC
+#     provides CephFS-backed persistent volumes. If your cluster uses a
+#     different StorageClass, change it accordingly (e.g. "standard",
+#     "longhorn", "local-path").
+#   - The PVC requests 10Gi which should be sufficient for moderate
+#     document collections. Increase if you plan to index very large
+#     corpora.
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: qdrant
+  namespace: des-chatbot
+  labels:
+    app: qdrant
+    app.kubernetes.io/part-of: des-chatbot
+spec:
+  serviceName: qdrant
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qdrant
+  template:
+    metadata:
+      labels:
+        app: qdrant
+    spec:
+      containers:
+        - name: qdrant
+          image: qdrant/qdrant:v1.12.1
+          ports:
+            - name: http
+              containerPort: 6333
+              protocol: TCP
+            - name: grpc
+              containerPort: 6334
+              protocol: TCP
+          resources:
+            requests:
+              cpu: "2"
+              memory: "4Gi"
+            limits:
+              cpu: "2"
+              memory: "4Gi"
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 20
+            timeoutSeconds: 3
+            failureThreshold: 3
+          volumeMounts:
+            - name: qdrant-storage
+              mountPath: /qdrant/storage
+  volumeClaimTemplates:
+    - metadata:
+        name: qdrant-storage
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        # ICE Connect EKC: change storageClassName if your cluster does
+        # not use CephFS. Common alternatives: "standard", "longhorn".
+        storageClassName: cephfs
+        resources:
+          requests:
+            storage: 10Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: qdrant
+  namespace: des-chatbot
+  labels:
+    app: qdrant
+    app.kubernetes.io/part-of: des-chatbot
+spec:
+  type: ClusterIP
+  selector:
+    app: qdrant
+  ports:
+    - name: http
+      port: 6333
+      targetPort: http
+      protocol: TCP
+    - name: grpc
+      port: 6334
+      targetPort: grpc
+      protocol: TCP
