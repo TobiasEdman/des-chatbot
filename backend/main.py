@@ -123,6 +123,7 @@ class ChatMetadata(BaseModel):
     """Metadata returned alongside the streamed response."""
 
     session_id: str
+    sources: list[dict] = Field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------
@@ -180,8 +181,12 @@ async def chat(request: Request, body: ChatRequest) -> StreamingResponse:
             yield f"data: {payload}\n\n"
             full_response.append(error_msg)
 
-        # Signal stream end
-        yield "event: done\ndata: {}\n\n"
+        # Signal stream end — include sources used for this response
+        sources = rag_pipeline.last_sources
+        done_payload = json.dumps(
+            {"sources": sources}, ensure_ascii=False
+        )
+        yield f"event: done\ndata: {done_payload}\n\n"
 
         # Update session history
         assistant_text = "".join(full_response)

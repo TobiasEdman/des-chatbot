@@ -147,7 +147,7 @@ function des_chatbot_render_widget() {
     toggle.classList.toggle('open',open);
     toggle.setAttribute('aria-expanded',open);
     toggle.setAttribute('aria-label',open?'Close chat':'Open chat');
-    if(open){input.focus();if(!msgBox.children.length)addMsg('bot','Hello! How can I help you today?')}
+    if(open){input.focus();if(!msgBox.children.length)addMsg('bot','Hej! Jag kan svara på frågor om Digital Earth Sweden, satellitdata, openEO och STAC.')}
   });
 
   document.addEventListener('keydown',function(e){
@@ -206,40 +206,85 @@ function des_chatbot_render_widget() {
     return s;
   }
 
-  function sendMessage(text){
+  async function sendMessage(text){
     busy=true;sendBtn.disabled=true;typing.classList.add('visible');
     msgBox.scrollTop=msgBox.scrollHeight;
     let botDiv=null;let accumulated='';
 
-    const params=new URLSearchParams({message:text,session_id:sessionId()});
-    const es=new EventSource(API_URL+'?'+params.toString());
+    try{
+      const resp=await fetch(API_URL,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({message:text,session_id:sessionId()})
+      });
+      if(!resp.ok){throw new Error('HTTP '+resp.status)}
 
-    es.onmessage=function(e){
-      if(e.data==='[DONE]'){es.close();finish();return}
-      try{
-        const d=JSON.parse(e.data);
-        const chunk=d.content||d.text||d.delta||d.message||'';
-        if(chunk){
-          accumulated+=chunk;
-          if(!botDiv)botDiv=addMsg('bot','');
-          botDiv.innerHTML=renderMd(accumulated);
-          msgBox.scrollTop=msgBox.scrollHeight;
+      const reader=resp.body.getReader();
+      const decoder=new TextDecoder();
+      let buf='';
+
+      while(true){
+        const{done,value}=await reader.read();
+        if(done)break;
+        buf+=decoder.decode(value,{stream:true});
+
+        // Parse SSE lines from buffer
+        const lines=buf.split('\n');
+        buf=lines.pop()||'';
+        let currentEvent='';
+
+        for(const line of lines){
+          if(line.startsWith('event: ')){
+            currentEvent=line.slice(7).trim();
+            continue;
+          }
+          if(!line.startsWith('data: '))continue;
+          const data=line.slice(6);
+
+          // Handle done event with sources
+          if(currentEvent==='done'){
+            try{
+              const doneData=JSON.parse(data);
+              // Sources are already appended in the streamed text by RAG
+              // but done event has structured source data for future use
+            }catch(_){}
+            currentEvent='';
+            continue;
+          }
+
+          // Handle metadata event
+          if(currentEvent==='metadata'){
+            currentEvent='';
+            continue;
+          }
+
+          // Regular data chunk
+          try{
+            const d=JSON.parse(data);
+            const chunk=d.content||d.text||d.delta||d.message||'';
+            if(chunk){
+              accumulated+=chunk;
+              if(!botDiv)botDiv=addMsg('bot','');
+              botDiv.innerHTML=renderMd(accumulated);
+              msgBox.scrollTop=msgBox.scrollHeight;
+            }
+          }catch(_){
+            if(data&&data!=='{}'){
+              accumulated+=data;
+              if(!botDiv)botDiv=addMsg('bot','');
+              botDiv.innerHTML=renderMd(accumulated);
+              msgBox.scrollTop=msgBox.scrollHeight;
+            }
+          }
+          currentEvent='';
         }
-      }catch(_){
-        accumulated+=e.data;
-        if(!botDiv)botDiv=addMsg('bot','');
-        botDiv.innerHTML=renderMd(accumulated);
-        msgBox.scrollTop=msgBox.scrollHeight;
       }
-    };
+    }catch(err){
+      console.error('DES Chatbot error:',err);
+      if(!accumulated)addMsg('bot','Ett fel uppstod. Försök igen om en stund.');
+    }
 
-    es.onerror=function(){
-      es.close();
-      if(!accumulated){addMsg('bot','Sorry, something went wrong. Please try again.')}
-      finish();
-    };
-
-    function finish(){busy=false;sendBtn.disabled=false;typing.classList.remove('visible');input.focus()}
+    busy=false;sendBtn.disabled=false;typing.classList.remove('visible');input.focus();
   }
 })();
 </script>

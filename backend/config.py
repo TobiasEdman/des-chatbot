@@ -9,7 +9,13 @@ import os
 VLLM_URL: str = os.getenv("VLLM_URL", "http://vllm:8000/v1")
 MODEL_NAME: str = os.getenv("MODEL_NAME", "mistralai/Mistral-7B-Instruct-v0.3")
 LLM_MAX_TOKENS: int = int(os.getenv("LLM_MAX_TOKENS", "1024"))
-LLM_TEMPERATURE: float = float(os.getenv("LLM_TEMPERATURE", "0.3"))
+LLM_TEMPERATURE: float = float(os.getenv("LLM_TEMPERATURE", "0.1"))
+
+# Retrieval settings
+RETRIEVAL_TOP_K: int = int(os.getenv("RETRIEVAL_TOP_K", "5"))
+RETRIEVAL_SCORE_THRESHOLD: float = float(
+    os.getenv("RETRIEVAL_SCORE_THRESHOLD", "0.30")
+)
 
 # Qdrant settings
 QDRANT_URL: str = os.getenv("QDRANT_URL", "http://qdrant:6333")
