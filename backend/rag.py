@@ -32,27 +32,37 @@ logger = logging.getLogger(__name__)
 # System prompt — strict, fact-based, no hallucination
 # ---------------------------------------------------------------------------
 SYSTEM_PROMPT = (
-    "Du är DES Chatbot, en domänexpert inom Digital Earth Sweden (DES).\n"
-    "Du svarar på svenska om inte användaren skriver på ett annat språk.\n\n"
-    "Du svarar enbart på frågor som rör Digital Earth Swedens datamängder, "
-    "tjänster, openEO API, STAC, tutorials, guider, satellitdata, "
-    "fjärranalys och jordobservation — baserat på tillhandahållen kontext "
-    "och källor.\n\n"
+    "Du är DES Chatbot för Digital Earth Sweden.\n"
+    "Svara ALLTID på svenska. Svara kort (max 3-4 meningar).\n\n"
+    "OM DIGITAL EARTH SWEDEN:\n"
+    "Digital Earth Sweden (DES) är en nationell plattform för "
+    "jordobservationsdata, utvecklad av RISE och Rymdstyrelsen. "
+    "DES tillhandahåller:\n"
+    "- Analysredo Sentinel-2 satellitdata (optisk) för hela Sverige\n"
+    "- openEO API för programmatisk dataåtkomst och processering\n"
+    "- STAC-katalog för att söka och ladda ner geodata\n"
+    "- Karttjänst för visualisering i webbläsaren\n"
+    "- IMINT Engine för bildanalys (marktäcke, vegetation, kustlinje)\n\n"
+    "DES fokuserar på optisk data (Sentinel-2), inte SAR eller väder.\n"
+    "Men du kan svara på forskningsfrågor om alla EO-ämnen "
+    "(SAR, fjärranalys, klimat etc.) baserat på kontexten.\n\n"
     "REGLER:\n"
-    "- Ge faktabaserade, kortfattade och seriösa svar.\n"
-    "- Ställ INGA uppföljningsfrågor och be INTE om förtydliganden.\n"
-    "- Förklara eller diskutera INTE saker som inte explicit efterfrågats.\n"
-    "- Spekulera eller gissa INTE om något saknas i kontexten.\n"
-    "- Inkludera INTE information från externa eller ej angivna källor.\n"
-    "- Använd INTE sociala medier, forum eller generella AI-kunskaper "
-    "som källa.\n"
-    "- Om kontexten inte innehåller tillräcklig information, svara: "
-    '"Jag har ingen information om detta i tillgänglig kontext."\n'
-    "- Ange alltid källa till svaret där det är möjligt, i formatet: "
-    '"Källa: [länk]"\n'
-    "- Avsluta svaret efter att frågan är besvarad. Lägg INTE till "
-    "ytterligare förklaringar, sammanfattningar eller förslag.\n"
+    "- Basera svaret ENBART på kontexten nedan.\n"
+    "- Ställ INGA uppföljningsfrågor.\n"
+    "- Spekulera INTE. Hitta INTE på information.\n"
+    "- Ange INGA källhänvisningar i svaret.\n"
+    "- Om kontexten saknar svar: \"Jag har ingen information om detta.\"\n"
+    "- Vid hälsningar (hej, hallå, god dag): svara vänligt och berätta "
+    "kort vad du kan hjälpa till med.\n"
 )
+
+GREETING_RESPONSE = (
+    "Hej! Jag är DES Chatbot och kan svara på frågor om "
+    "Digital Earth Sweden, satellitdata, openEO, STAC och fjärranalys. "
+    "Vad vill du veta?"
+)
+
+GREETING_WORDS = {"hej", "hallå", "hello", "hi", "tjena", "god dag", "hejsan", "tja"}
 
 NO_CONTEXT_RESPONSE = "Jag har ingen information om detta i tillgänglig kontext."
 
@@ -103,6 +113,18 @@ class RAGPipeline:
         """Encode a text query into an embedding vector."""
         return self.embedding_model.encode(text).tolist()
 
+    # Keywords that indicate a research/science question
+    _RESEARCH_KEYWORDS = {
+        "forskning", "forskare", "studie", "artikel", "publikation",
+        "abstract", "vetenskap", "akademi", "universitet",
+        "research", "study", "paper", "scientist",
+    }
+
+    def _is_research_query(self, query: str) -> bool:
+        """Detect if user is asking about research/publications."""
+        q_lower = query.lower()
+        return any(kw in q_lower for kw in self._RESEARCH_KEYWORDS)
+
     def retrieve(
         self,
         query: str,
@@ -112,7 +134,8 @@ class RAGPipeline:
         """
         Retrieve the most relevant document chunks for a given query.
 
-        Applies score filtering to remove low-relevance results.
+        For research questions, fetches more results and prioritizes
+        publication chunks over WordPress content.
 
         Args:
             query: The user's search query.
@@ -122,29 +145,33 @@ class RAGPipeline:
         Returns:
             List of RetrievedChunk objects above the score threshold.
         """
+        is_research = self._is_research_query(query)
+        fetch_k = top_k * 3 if is_research else top_k
+
         try:
             query_vector = self.embed_query(query)
             results: list[ScoredPoint] = self.qdrant.search(
                 collection_name=COLLECTION_NAME,
                 query_vector=query_vector,
-                limit=top_k,
+                limit=fetch_k,
             )
             chunks = []
             for point in results:
                 if point.score < score_threshold:
-                    logger.debug(
-                        "Skipping chunk (score=%.3f < threshold=%.3f): %s",
-                        point.score,
-                        score_threshold,
-                        (point.payload or {}).get("source", "?"),
-                    )
                     continue
                 payload = point.payload or {}
+                chunk_type = payload.get("type", "")
+                # Boost publication scores for research queries
+                effective_score = point.score
+                if is_research and chunk_type == "publication":
+                    effective_score += 0.15  # Strong boost for publications
+                elif is_research and chunk_type != "publication":
+                    effective_score -= 0.05  # Demote non-publications
                 chunks.append(
                     RetrievedChunk(
                         text=payload.get("text", ""),
                         source=payload.get("source", "unknown"),
-                        score=point.score,
+                        score=effective_score,
                         metadata={
                             k: v
                             for k, v in payload.items()
@@ -152,6 +179,10 @@ class RAGPipeline:
                         },
                     )
                 )
+
+            # Re-sort by effective score and take top_k
+            chunks.sort(key=lambda c: c.score, reverse=True)
+            chunks = chunks[:top_k]
             logger.info(
                 "Retrieved %d chunks for query (top score: %.3f, "
                 "filtered from %d, threshold=%.2f)",
@@ -255,35 +286,30 @@ class RAGPipeline:
             "stop": ["\n\nFråga:", "\n\nUser:", "\n\nAnvändare:"],
         }
 
+        # Use non-streaming vLLM call (httpx 0.28 streaming + vLLM has
+        # compatibility issues). The full response is returned at once and
+        # then yielded to the SSE stream in main.py.
+        payload["stream"] = False
+
         async with httpx.AsyncClient(timeout=120.0) as client:
             try:
-                async with client.stream(
-                    "POST",
+                response = await client.post(
                     f"{VLLM_URL}/chat/completions",
                     json=payload,
                     headers={"Content-Type": "application/json"},
-                ) as response:
-                    response.raise_for_status()
-                    async for line in response.aiter_lines():
-                        if not line.startswith("data: "):
-                            continue
-                        data = line[len("data: "):]
-                        if data.strip() == "[DONE]":
-                            break
-                        try:
-                            chunk = json.loads(data)
-                            delta = (
-                                chunk.get("choices", [{}])[0]
-                                .get("delta", {})
-                                .get("content", "")
-                            )
-                            if delta:
-                                yield delta
-                        except (ValueError, IndexError, KeyError):
-                            logger.warning(
-                                "Failed to parse streaming chunk: %s", data
-                            )
-                            continue
+                )
+                response.raise_for_status()
+                data = response.json()
+                content = (
+                    data.get("choices", [{}])[0]
+                    .get("message", {})
+                    .get("content", "")
+                )
+                if content:
+                    yield content
+                else:
+                    logger.warning("vLLM returned empty content")
+                    yield NO_CONTEXT_RESPONSE
             except httpx.HTTPStatusError as exc:
                 logger.error(
                     "vLLM returned HTTP %d: %s",
@@ -321,7 +347,35 @@ class RAGPipeline:
         if history is None:
             history = []
 
+        # Handle greetings without LLM call
+        query_lower = user_query.strip().lower().rstrip("!?.,")
+        if query_lower in GREETING_WORDS:
+            self._last_sources = []
+            yield GREETING_RESPONSE
+            return
+
         chunks = self.retrieve(user_query)
+
+        # GraphRAG: add Neo4j results for research queries
+        try:
+            from graph_rag import classify_query, query_graph
+            query_type = classify_query(user_query)
+            if query_type == "research":
+                graph_results = query_graph(user_query)
+                for gq in graph_results:
+                    context_str = gq.to_context_string()
+                    if context_str:
+                        # Insert graph data as a high-priority chunk
+                        chunks.insert(0, RetrievedChunk(
+                            text=context_str,
+                            source="knowledge_graph",
+                            score=1.0,  # Highest priority
+                            metadata={"type": "graph", "query_type": gq.query_type},
+                        ))
+                logger.info("GraphRAG: %d graph results for query type '%s'",
+                           len(graph_results), query_type)
+        except Exception as e:
+            logger.warning("GraphRAG unavailable: %s", e)
 
         # Store sources for post-response citation
         self._last_sources = [
@@ -339,20 +393,9 @@ class RAGPipeline:
             response_parts.append(token)
             yield token
 
-        # Append source citations if we had context and the response
-        # is not the no-context fallback
-        full_response = "".join(response_parts)
-        if chunks and full_response != NO_CONTEXT_RESPONSE:
-            # Only add sources if the response doesn't already contain them
-            if "Källa:" not in full_response:
-                yield "\n\n---\n**Källor:**\n"
-                seen_sources: set[str] = set()
-                for chunk in chunks:
-                    if chunk.source in seen_sources:
-                        continue
-                    seen_sources.add(chunk.source)
-                    title = chunk.metadata.get("title", chunk.source)
-                    yield f"- [{title}]({chunk.source})\n"
+        # Source citations removed — source URLs from indexer are not
+        # user-facing (e.g. "wordpress" instead of actual URLs).
+        # Sources are still available in the SSE done event for debugging.
 
     @property
     def last_sources(self) -> list[dict]:

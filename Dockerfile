@@ -20,7 +20,7 @@ COPY backend/ .
 
 # Pre-download the embedding model at build time so the container
 # starts faster and does not need outbound internet access at runtime.
-RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')"
 
 EXPOSE 8080
 

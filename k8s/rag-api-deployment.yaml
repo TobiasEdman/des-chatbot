@@ -12,7 +12,7 @@ metadata:
     app: rag-api
     app.kubernetes.io/part-of: des-chatbot
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: rag-api
@@ -23,19 +23,25 @@ spec:
     spec:
       containers:
         - name: rag-api
-          image: des-chatbot-api:latest
-          # Set to IfNotPresent when using a local/private registry;
-          # change to Always if you push :latest tags frequently.
-          imagePullPolicy: IfNotPresent
+          image: tobiasedman/des-chatbot-api:latest
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
           env:
             - name: VLLM_URL
-              value: "http://vllm:8000/v1"
+              value: "http://llm-inference:8000/v1"
+            - name: MODEL_NAME
+              value: "TheBloke/Mistral-7B-Instruct-v0.2-AWQ"
             - name: QDRANT_URL
               value: "http://qdrant:6333"
+            - name: NEO4J_URI
+              value: "bolt://kg-neo4j:7687"
+            - name: NEO4J_USER
+              value: "neo4j"
+            - name: NEO4J_PASSWORD
+              value: "spacekg2026"
           resources:
             requests:
               cpu: "4"

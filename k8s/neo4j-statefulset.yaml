@@ -1,0 +1,91 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: kg-neo4j
+  namespace: prithvi-training-default
+  labels:
+    app: kg-neo4j
+    app.kubernetes.io/part-of: des-chatbot
+spec:
+  serviceName: kg-neo4j
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kg-neo4j
+  template:
+    metadata:
+      labels:
+        app: kg-neo4j
+    spec:
+      containers:
+        - name: neo4j
+          image: neo4j:5-community
+          ports:
+            - name: http
+              containerPort: 7474
+            - name: bolt
+              containerPort: 7687
+          env:
+            - name: NEO4J_AUTH
+              value: "neo4j/spacekg2026"
+            - name: NEO4J_PLUGINS
+              value: '["apoc"]'
+            - name: NEO4J_server_memory_heap_initial__size
+              value: "512m"
+            - name: NEO4J_server_memory_heap_max__size
+              value: "1g"
+            - name: NEO4J_server_memory_pagecache_size
+              value: "512m"
+            - name: NEO4J_server_config_strict__validation_enabled
+              value: "false"
+          resources:
+            requests:
+              cpu: "2"
+              memory: "4Gi"
+            limits:
+              cpu: "2"
+              memory: "4Gi"
+          volumeMounts:
+            - name: kg-neo4j-data
+              mountPath: /data
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 60
+            periodSeconds: 20
+  volumeClaimTemplates:
+    - metadata:
+        name: kg-neo4j-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: rook-ceph-rbd
+        resources:
+          requests:
+            storage: 5Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kg-neo4j
+  namespace: prithvi-training-default
+  labels:
+    app: kg-neo4j
+    app.kubernetes.io/part-of: des-chatbot
+spec:
+  type: ClusterIP
+  selector:
+    app: kg-neo4j
+  ports:
+    - name: http
+      port: 7474
+      targetPort: http
+    - name: bolt
+      port: 7687
+      targetPort: bolt

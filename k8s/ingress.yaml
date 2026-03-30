@@ -17,12 +17,20 @@ metadata:
     app.kubernetes.io/part-of: des-chatbot
   annotations:
     # TLS certificate management via cert-manager.
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/issuer: "letsencrypt-prod"
 
     # NGINX Ingress Controller annotations.
     nginx.ingress.kubernetes.io/proxy-body-size: "10m"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "120"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "120"
+    # SSE streaming — disable proxy buffering for real-time token delivery.
+    nginx.ingress.kubernetes.io/proxy-buffering: "off"
+
+    # CORS — allow WordPress to call this API cross-origin
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://digitalearth.se,https://www.digitalearth.se"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, OPTIONS"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "Content-Type"
 
     # Rate limiting -- per client IP.
     # 10 requests/second with a burst of 20.
@@ -33,10 +41,20 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - chat.digitalearth.se
-      secretName: chat-digitalearth-se-tls
+        - des-chatbot.icedc.se
+      secretName: des-chatbot-icedc-tls
   rules:
     - host: chat.digitalearth.se
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rag-api
+                port:
+                  number: 8080
+    - host: des-chatbot.icedc.se
       http:
         paths:
           - path: /
