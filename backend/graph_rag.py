@@ -34,11 +34,19 @@ from cypher_templates import (
 
 logger = logging.getLogger(__name__)
 
-# Neo4j config (set via env vars in K8s)
+# Neo4j config (required env vars — set via K8s Secret in production,
+# via .env for local dev). No fallback passwords in source — see
+# agentic_workflow rollout plan W1.2.
 import os
 NEO4J_URI = os.getenv("NEO4J_URI", "bolt://kg-neo4j:7687")
 NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
-NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "spacekg2026")
+NEO4J_PASSWORD = os.environ.get("NEO4J_PASSWORD")
+if not NEO4J_PASSWORD:
+    raise RuntimeError(
+        "NEO4J_PASSWORD environment variable is required. "
+        "Set it via K8s Secret (production) or .env file (local dev). "
+        "Never hardcode — rotation pending per agentic_workflow rollout W1.2."
+    )
 
 
 class GraphQuery:
