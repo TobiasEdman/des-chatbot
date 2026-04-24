@@ -143,6 +143,18 @@ async def chat(request: Request, body: ChatRequest) -> StreamingResponse:
     Accepts a user message and optional session_id. Returns a streaming
     response where each SSE event contains a text chunk from the LLM.
     """
+    # OTel instrumentation (fail-open — see backend/instrumentation.py)
+    import time as _time
+    try:
+        from instrumentation import span, record_chat_ms, record_tokens
+    except ImportError:  # pragma: no cover
+        import contextlib as _cl
+        @_cl.contextmanager
+        def span(*a, **kw):
+            yield
+        record_chat_ms = lambda *a, **kw: None  # noqa: E731
+        record_tokens = lambda *a, **kw: None  # noqa: E731
+
     # Rate limiting
     client_ip = request.client.host if request.client else "unknown"
     _check_rate_limit(client_ip)
@@ -157,6 +169,8 @@ async def chat(request: Request, body: ChatRequest) -> StreamingResponse:
         session_id,
         len(body.message),
     )
+
+    _chat_start = _time.monotonic()
 
     async def event_stream() -> AsyncGenerator[str, None]:
         """Generate SSE events from the RAG pipeline."""
@@ -197,6 +211,11 @@ async def chat(request: Request, body: ChatRequest) -> StreamingResponse:
         # because each turn has user + assistant)
         max_entries = MAX_HISTORY_MESSAGES * 2
         session_store[session_id] = history[-max_entries:]
+
+        # OTel: record duration + approximate token count (char-based proxy).
+        # Char-based is a rough but stable proxy for streaming-token volume.
+        record_chat_ms((_time.monotonic() - _chat_start) * 1000, status="success")
+        record_tokens(sum(len(c) for c in full_response))
 
     return StreamingResponse(
         event_stream(),

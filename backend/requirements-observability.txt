@@ -1,0 +1,11 @@
+# Optional OTel stack for des-chatbot. Install on top of requirements.txt
+# when deploying with observability enabled:
+#
+#   pip install -r requirements.txt -r requirements-observability.txt
+#
+# Per agentic_workflow rollout plan W2.2. Wired up in backend/instrumentation.py.
+# Activates only when OTEL_EXPORTER_OTLP_ENDPOINT is set.
+
+opentelemetry-api>=1.25,<2
+opentelemetry-sdk>=1.25,<2
+opentelemetry-exporter-otlp-proto-grpc>=1.25,<2
