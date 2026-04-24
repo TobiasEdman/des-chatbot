@@ -1,0 +1,60 @@
+name: CI
+
+# Per agentic_workflow rollout plan W2.1 + des-chatbot W1.2 regression guard.
+# Validates:
+#  - graph_rag.py fail-fasts on missing NEO4J_PASSWORD (W1.2 commit 1e6280c)
+#  - graph_rag.py imports cleanly with NEO4J_PASSWORD set
+#  - Pytest passes (if backend/tests/ exists)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+
+      - name: graph_rag — fail-fast on missing NEO4J_PASSWORD (W1.2 regression)
+        run: |
+          set +e
+          output=$(cd backend && env -u NEO4J_PASSWORD python -c "import graph_rag" 2>&1)
+          rc=$?
+          if [ "$rc" == "0" ]; then
+            echo "FAIL: graph_rag.py imported without NEO4J_PASSWORD — W1.2 fail-fast regressed"
+            exit 1
+          fi
+          echo "$output" | grep -q "NEO4J_PASSWORD" \
+            || { echo "FAIL: error message does not mention NEO4J_PASSWORD"; echo "$output"; exit 1; }
+          echo "OK: graph_rag.py correctly fails on missing NEO4J_PASSWORD"
+
+      - name: graph_rag — happy path with env set
+        env:
+          NEO4J_PASSWORD: ci-sentinel-not-real
+        run: cd backend && python -c "import graph_rag; print('OK')"
+
+      - name: Pytest (if tests/ exists)
+        env:
+          NEO4J_PASSWORD: ci-sentinel-not-real
+        run: |
+          if [ -d backend/tests ]; then
+            cd backend && pytest tests/ -v --tb=short
+          else
+            echo "No backend/tests/ dir — skipping."
+          fi
