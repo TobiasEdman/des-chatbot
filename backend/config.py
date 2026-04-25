@@ -21,11 +21,35 @@ RETRIEVAL_SCORE_THRESHOLD: float = float(
 QDRANT_URL: str = os.getenv("QDRANT_URL", "http://qdrant:6333")
 COLLECTION_NAME: str = os.getenv("COLLECTION_NAME", "des_knowledge")
 
-# Embedding model
+# Embedding model.
+#
+# Canonical choice (per des-contracts v0.1.0, rollout W3.5) is
+# nomic-embed-text:v1.5 at 768-dim, served by Ollama. des-chatbot is
+# currently still on sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+# at 384-dim. Migration is non-trivial (requires reindexing the
+# production des_knowledge collection in Qdrant) and tracked separately.
+#
+# We import the canonical record so any drift is surfaced at startup.
 EMBEDDING_MODEL: str = os.getenv(
     "EMBEDDING_MODEL", "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 )
-EMBEDDING_DIMENSION: int = 384  # all-MiniLM-L6-v2 output dimension
+EMBEDDING_DIMENSION: int = 384
+
+try:
+    from des_contracts.rag import EMBEDDING_CONFIG as _CANONICAL_EMBEDDING
+
+    if EMBEDDING_MODEL != _CANONICAL_EMBEDDING.model:
+        import logging
+
+        logging.getLogger(__name__).warning(
+            "Embedding model %s differs from canonical %s "
+            "(des-contracts v0.1.0). Migration requires Qdrant reindex; "
+            "see docs for plan.",
+            EMBEDDING_MODEL,
+            _CANONICAL_EMBEDDING.model,
+        )
+except ImportError:
+    pass
 
 # Digital Earth Sweden sources
 DES_WORDPRESS_URL: str = os.getenv(

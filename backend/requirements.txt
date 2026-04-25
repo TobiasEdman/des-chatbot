@@ -6,3 +6,7 @@ qdrant-client==1.13.3
 sentence-transformers==3.3.1
 torch==2.5.1
 neo4j==5.27.0
+
+# Shared contracts — exposes the canonical EMBEDDING_CONFIG that
+# config.py compares against and warns on drift. Per rollout W3.6.
+des-contracts @ git+https://github.com/TobiasEdman/des-contracts.git@v0.1.0
