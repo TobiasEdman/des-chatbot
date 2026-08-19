@@ -18,5 +18,7 @@ resources:
   - rag-api-deployment.yaml
   - ingress.yaml
 
-commonLabels:
-  app.kubernetes.io/part-of: des-chatbot
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: des-chatbot
+    includeSelectors: true

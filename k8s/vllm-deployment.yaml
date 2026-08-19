@@ -80,7 +80,6 @@ spec:
             periodSeconds: 30
             failureThreshold: 10
             timeoutSeconds: 5
-            failureThreshold: 5
       # Give the model time to download and load into GPU memory.
       terminationGracePeriodSeconds: 60
 ---
