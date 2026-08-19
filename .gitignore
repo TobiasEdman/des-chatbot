@@ -6,3 +6,7 @@ venv/
 *.egg-info/
 .DS_Store
 dist/
+
+# Local reference/viewing artifacts (not distributable application sources)
+docs/DES_grafisk_manual.pdf
+docs/viewer.html
