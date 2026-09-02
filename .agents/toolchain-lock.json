@@ -1,0 +1,435 @@
+{
+  "schema_version": "3",
+  "package": {
+    "name": "multi-agentic",
+    "preflight": {
+      "filename": "verified_toolchain.py",
+      "sha256": "c917b40ee530aa0d9722851609611cff14c8fb59ecf26f06a662262d27f6f802"
+    },
+    "reviewed_source": {
+      "commit": "0000000000000000000000000000000000000000",
+      "repository": "https://github.com/TobiasEdman/multi-agentic.git",
+      "uv_lock_sha256": "0e6c443255913e7c1a03c9230d1816cffafd9b772104f6f6e5e956a5f137bb15"
+    },
+    "version": "0.7.0",
+    "wheel": {
+      "embedded_lock_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "filename": "multi_agentic-0.7.0-py3-none-any.whl",
+      "metadata_sha256": {
+        "METADATA": "88233afc2fa7c8d4e9a98763cecd911521550cbb3233b36b498668c9e549e0dc",
+        "WHEEL": "61532836a2b3111b7ec23519c09df7c41180c27165fb872a6d8913b566b88ad1",
+        "entry_points.txt": "0a6efa0e3a1eb9d5e62c522ae9931d40a24e7edf8b795a6a303c5e6f66a63f4a",
+        "top_level.txt": "6409d146d1f6ce742b0338d1be33f8da344a0cadfef1c24467cc71d706cbe332"
+      },
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "package_file_count": 72,
+  "package_tree_sha256": "125d81d69f369db63e21dc3cde746f12b41a6d0b3ab896d60d96a83ba7efc2e7",
+  "runtime_profiles": {
+    "Darwin-arm64-cpython-314": {
+      "authentication": {
+        "credential_helper": null
+      },
+      "install_profiles": {
+        "coordination": {
+          "additional_distributions": {},
+          "entrypoints": [
+            "agentic-continuity",
+            "agentic-task"
+          ],
+          "extras": []
+        },
+        "operator": {
+          "additional_distributions": {},
+          "entrypoints": [
+            "agentic-active-binding",
+            "agentic-operator-sign",
+            "agentic-policy-verify"
+          ],
+          "extras": [
+            "operator"
+          ]
+        },
+        "service": {
+          "additional_distributions": {},
+          "entrypoints": [
+            "agentic-pilot-provision",
+            "agentic-pilot-service"
+          ],
+          "extras": [
+            "service"
+          ]
+        },
+        "worker": {
+          "additional_distributions": {},
+          "entrypoints": [
+            "agentic-pilot-watcher",
+            "agentic-pilot-worker"
+          ],
+          "extras": [
+            "service"
+          ]
+        }
+      },
+      "platform": {
+        "machine": "arm64",
+        "python_cache_tag": "cpython-314",
+        "system": "Darwin"
+      },
+      "python": {
+        "base_executable_relative_path": "cpython-3.14.3-macos-aarch64-none/bin/python3.14",
+        "base_executable_sha256": "fe027e1504df20b6b93b1c9dbc2695a3dc592cd0dc7916b1a3349c97d9104527",
+        "implementation": "cpython",
+        "runtime_library_relative_path": "lib/libpython3.14.dylib",
+        "runtime_library_sha256": "ce1242fddad73feaf09dfb269cfab590e5f7f01819933a3d9db2076f1d8b3691",
+        "stdlib_file_count": 704,
+        "stdlib_tree_sha256": "8d4274aa2f090e6cc1bed73ce9e91e63e4ae42b13220e26ba237fc78511b421e",
+        "venv_python_names": [
+          "python",
+          "python3",
+          "python3.14"
+        ],
+        "version": "3.14.3"
+      },
+      "tools": {
+        "docker": {
+          "relative_path": "tools/docker",
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "git": {
+          "relative_path": "tools/git",
+          "sha256": "4c5ca299b5311572b4f948d11efd7c66dcadf30950fbf260688ee32f4a63f6a4"
+        },
+        "hash": {
+          "relative_path": "tools/hash",
+          "sha256": "0812595f981a26f813d98dc380af14d4af427626c9339eda29eb849ae13de1e3"
+        },
+        "provisioner": {
+          "relative_path": "tools/uv",
+          "sha256": "d4182a7bba32f331b2c5a74568cf1c88aa50f31fe643a2c56118c6610db0aff0"
+        }
+      },
+      "distributions": {
+        "annotated-doc": {
+          "artifact": {
+            "filename": "annotated_doc-0.0.4-py3-none-any.whl",
+            "sha256": "571ac1dc6991c450b25a9c2d84a3705e2ae7a53467b5d111c24fa8baabbed320"
+          },
+          "version": "0.0.4",
+          "tree_sha256": "ff61d718dcece0263c0646893bd3228b42103692ed140c4fd8a2225ff5426766"
+        },
+        "attrs": {
+          "artifact": {
+            "filename": "attrs-26.1.0-py3-none-any.whl",
+            "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+          },
+          "version": "26.1.0",
+          "tree_sha256": "6339024e2faf7d539222efd00eceec6f7e82df5432c937a2d7276c47cbb69d3d"
+        },
+        "click": {
+          "artifact": {
+            "filename": "click-8.4.2-py3-none-any.whl",
+            "sha256": "e6f9f66136c816745b9d65817da91d61d957fb16e02e4dcd0552553c5a197b76"
+          },
+          "version": "8.4.2",
+          "tree_sha256": "59c9d04d8a02937a926febf6ba29e5cc8da08422b10a26626ce128d757132e41"
+        },
+        "jsonschema": {
+          "artifact": {
+            "filename": "jsonschema-4.26.0-py3-none-any.whl",
+            "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce"
+          },
+          "version": "4.26.0",
+          "tree_sha256": "85ae28599168b03e047b6e6ab27b98735a0415c701761647e60f5cc557a0ce4c"
+        },
+        "jsonschema-specifications": {
+          "artifact": {
+            "filename": "jsonschema_specifications-2025.9.1-py3-none-any.whl",
+            "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe"
+          },
+          "version": "2025.9.1",
+          "tree_sha256": "c707eb44469e0ff36015aea5f0747ae6f33076364015808aa15d8c389ca24940"
+        },
+        "markdown-it-py": {
+          "artifact": {
+            "filename": "markdown_it_py-4.2.0-py3-none-any.whl",
+            "sha256": "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a"
+          },
+          "version": "4.2.0",
+          "tree_sha256": "7d3c02c934315b2fad0751ab2aaa1b537b20dd53a81c2156e013430f1c343835"
+        },
+        "mdurl": {
+          "artifact": {
+            "filename": "mdurl-0.1.2-py3-none-any.whl",
+            "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"
+          },
+          "version": "0.1.2",
+          "tree_sha256": "77b3a9dd56692adfe243d4f722f8010abdc161e9f9e074614159ab10876c215b"
+        },
+        "multi-agentic": {
+          "artifact": {
+            "filename": "multi_agentic-0.7.0-py3-none-any.whl",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "version": "0.7.0",
+          "tree_sha256": "7e6f74cab72ff8a0e7bb57acedb6e97ddd5dc1d789ee5cee8342fba04098d673"
+        },
+        "pygments": {
+          "artifact": {
+            "filename": "pygments-2.20.0-py3-none-any.whl",
+            "sha256": "81a9e26dd42fd28a23a2d169d86d7ac03b46e2f8b59ed4698fb4785f946d0176"
+          },
+          "version": "2.20.0",
+          "tree_sha256": "c231e4e16dea707203880911e2f84d17fb2220befd10d1110f058112c7425439"
+        },
+        "referencing": {
+          "artifact": {
+            "filename": "referencing-0.37.0-py3-none-any.whl",
+            "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231"
+          },
+          "version": "0.37.0",
+          "tree_sha256": "ffe723d7d56212d09ddbc2b608750ffe64e326f450783a461ddddadd8a10e55e"
+        },
+        "rich": {
+          "artifact": {
+            "filename": "rich-15.0.0-py3-none-any.whl",
+            "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb"
+          },
+          "version": "15.0.0",
+          "tree_sha256": "26e190b34ec549017f45e386233726f2667abdf3dac2ba7488ef34d4e9d77029"
+        },
+        "rpds-py": {
+          "artifact": {
+            "filename": "rpds_py-2026.5.1-cp314-cp314-macosx_11_0_arm64.whl",
+            "sha256": "413b424f7c4ee65ab5e5be91f5731be0f8b41a1ee2b12dfe810d716312e95a78"
+          },
+          "version": "2026.5.1",
+          "tree_sha256": "c88b42c8a57a68b17575c20ce2ee225d0ff5c22098dfca3621ec375601ee3718"
+        },
+        "shellingham": {
+          "artifact": {
+            "filename": "shellingham-1.5.4-py2.py3-none-any.whl",
+            "sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686"
+          },
+          "version": "1.5.4",
+          "tree_sha256": "4a512eea0dc0908c6a353a97ce5e0fd051030703af7340d49c503ee743ed3718"
+        },
+        "typer": {
+          "artifact": {
+            "filename": "typer-0.26.7-py3-none-any.whl",
+            "sha256": "5c87cfbc5d34491c5346ebf49c23e18d56ccb863268d3a8d592b26087c2f5e58"
+          },
+          "version": "0.26.7",
+          "tree_sha256": "55786d8e712902e11a5fcd0f6a3057565f706699df991e2817b44837bc3c370a"
+        }
+      }
+    },
+    "Linux-aarch64-cpython-312": {
+      "authentication": {
+        "credential_helper": null
+      },
+      "install_profiles": {
+        "coordination": {
+          "additional_distributions": {},
+          "entrypoints": [
+            "agentic-continuity",
+            "agentic-task"
+          ],
+          "extras": []
+        },
+        "operator": {
+          "additional_distributions": {},
+          "entrypoints": [
+            "agentic-active-binding",
+            "agentic-operator-sign",
+            "agentic-policy-verify"
+          ],
+          "extras": [
+            "operator"
+          ]
+        },
+        "service": {
+          "additional_distributions": {},
+          "entrypoints": [
+            "agentic-pilot-provision",
+            "agentic-pilot-service"
+          ],
+          "extras": [
+            "service"
+          ]
+        },
+        "worker": {
+          "additional_distributions": {},
+          "entrypoints": [
+            "agentic-pilot-watcher",
+            "agentic-pilot-worker"
+          ],
+          "extras": [
+            "service"
+          ]
+        }
+      },
+      "platform": {
+        "machine": "aarch64",
+        "python_cache_tag": "cpython-312",
+        "system": "Linux"
+      },
+      "python": {
+        "base_executable_relative_path": "local/bin/python3.12",
+        "base_executable_sha256": "36727872f3be3469d83c23705431d90ab2b408a0ba1e3008ba3d4dd337b7f481",
+        "implementation": "cpython",
+        "runtime_library_relative_path": "lib/libpython3.12.so.1.0",
+        "runtime_library_sha256": "1ea073ad912bd6ff546c73c084026ac0401a7cb23593f0142e2958784b3f5a29",
+        "stdlib_file_count": 809,
+        "stdlib_tree_sha256": "af02526071b73da54ec9be3ea84a1f9b2d9ea0437574e0f90472d76b7ed8d1b4",
+        "venv_python_names": [
+          "python",
+          "python3",
+          "python3.12"
+        ],
+        "version": "3.12.14"
+      },
+      "tools": {
+        "docker": {
+          "relative_path": "bin/docker",
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "git": {
+          "relative_path": "bin/git",
+          "sha256": "a0e562e4bd3c4c79379e91d8c07a10104b2cefe8fac966dc6bd4874a57a807f3"
+        },
+        "hash": {
+          "relative_path": "bin/sha256sum",
+          "sha256": "7911a1f0aec4678c540bd78ff886f48d42790c8689a82ed0ae25ed79ed5dd512"
+        },
+        "provisioner": {
+          "relative_path": "local/bin/uv",
+          "sha256": "aa6361c0be8f08dc13184a7f0b17be5b594f10e667ddcc9c4a9d60204a07f707"
+        }
+      },
+      "distributions": {
+        "annotated-doc": {
+          "artifact": {
+            "filename": "annotated_doc-0.0.4-py3-none-any.whl",
+            "sha256": "571ac1dc6991c450b25a9c2d84a3705e2ae7a53467b5d111c24fa8baabbed320"
+          },
+          "version": "0.0.4",
+          "tree_sha256": "ff61d718dcece0263c0646893bd3228b42103692ed140c4fd8a2225ff5426766"
+        },
+        "attrs": {
+          "artifact": {
+            "filename": "attrs-26.1.0-py3-none-any.whl",
+            "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+          },
+          "version": "26.1.0",
+          "tree_sha256": "6339024e2faf7d539222efd00eceec6f7e82df5432c937a2d7276c47cbb69d3d"
+        },
+        "click": {
+          "artifact": {
+            "filename": "click-8.4.2-py3-none-any.whl",
+            "sha256": "e6f9f66136c816745b9d65817da91d61d957fb16e02e4dcd0552553c5a197b76"
+          },
+          "version": "8.4.2",
+          "tree_sha256": "59c9d04d8a02937a926febf6ba29e5cc8da08422b10a26626ce128d757132e41"
+        },
+        "jsonschema": {
+          "artifact": {
+            "filename": "jsonschema-4.26.0-py3-none-any.whl",
+            "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce"
+          },
+          "version": "4.26.0",
+          "tree_sha256": "85ae28599168b03e047b6e6ab27b98735a0415c701761647e60f5cc557a0ce4c"
+        },
+        "jsonschema-specifications": {
+          "artifact": {
+            "filename": "jsonschema_specifications-2025.9.1-py3-none-any.whl",
+            "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe"
+          },
+          "version": "2025.9.1",
+          "tree_sha256": "c707eb44469e0ff36015aea5f0747ae6f33076364015808aa15d8c389ca24940"
+        },
+        "markdown-it-py": {
+          "artifact": {
+            "filename": "markdown_it_py-4.2.0-py3-none-any.whl",
+            "sha256": "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a"
+          },
+          "version": "4.2.0",
+          "tree_sha256": "7d3c02c934315b2fad0751ab2aaa1b537b20dd53a81c2156e013430f1c343835"
+        },
+        "mdurl": {
+          "artifact": {
+            "filename": "mdurl-0.1.2-py3-none-any.whl",
+            "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"
+          },
+          "version": "0.1.2",
+          "tree_sha256": "77b3a9dd56692adfe243d4f722f8010abdc161e9f9e074614159ab10876c215b"
+        },
+        "multi-agentic": {
+          "artifact": {
+            "filename": "multi_agentic-0.7.0-py3-none-any.whl",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "version": "0.7.0",
+          "tree_sha256": "7e6f74cab72ff8a0e7bb57acedb6e97ddd5dc1d789ee5cee8342fba04098d673"
+        },
+        "pygments": {
+          "artifact": {
+            "filename": "pygments-2.20.0-py3-none-any.whl",
+            "sha256": "81a9e26dd42fd28a23a2d169d86d7ac03b46e2f8b59ed4698fb4785f946d0176"
+          },
+          "version": "2.20.0",
+          "tree_sha256": "c231e4e16dea707203880911e2f84d17fb2220befd10d1110f058112c7425439"
+        },
+        "referencing": {
+          "artifact": {
+            "filename": "referencing-0.37.0-py3-none-any.whl",
+            "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231"
+          },
+          "version": "0.37.0",
+          "tree_sha256": "ffe723d7d56212d09ddbc2b608750ffe64e326f450783a461ddddadd8a10e55e"
+        },
+        "rich": {
+          "artifact": {
+            "filename": "rich-15.0.0-py3-none-any.whl",
+            "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb"
+          },
+          "version": "15.0.0",
+          "tree_sha256": "26e190b34ec549017f45e386233726f2667abdf3dac2ba7488ef34d4e9d77029"
+        },
+        "rpds-py": {
+          "artifact": {
+            "filename": "rpds_py-2026.5.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+            "sha256": "0fa92420128dadce7f54bd73ba1825a273e9268fe9e35dbf7e6362890efa4e08"
+          },
+          "version": "2026.5.1",
+          "tree_sha256": "de2e73f5a79d2e8112dcdfe130faf95f3a54207162bb655d39e8d7074010471e"
+        },
+        "shellingham": {
+          "artifact": {
+            "filename": "shellingham-1.5.4-py2.py3-none-any.whl",
+            "sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686"
+          },
+          "version": "1.5.4",
+          "tree_sha256": "4a512eea0dc0908c6a353a97ce5e0fd051030703af7340d49c503ee743ed3718"
+        },
+        "typer": {
+          "artifact": {
+            "filename": "typer-0.26.7-py3-none-any.whl",
+            "sha256": "5c87cfbc5d34491c5346ebf49c23e18d56ccb863268d3a8d592b26087c2f5e58"
+          },
+          "version": "0.26.7",
+          "tree_sha256": "55786d8e712902e11a5fcd0f6a3057565f706699df991e2817b44837bc3c370a"
+        },
+        "typing-extensions": {
+          "artifact": {
+            "filename": "typing_extensions-4.15.0-py3-none-any.whl",
+            "sha256": "f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548"
+          },
+          "version": "4.15.0",
+          "tree_sha256": "3dcff36e0ea414b85ae6257f5e72cd85d9e41c492d743e341e97203912997cba"
+        }
+      }
+    }
+  }
+}

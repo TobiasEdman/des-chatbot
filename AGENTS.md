@@ -9,6 +9,9 @@ outside this block remain authoritative.
 - Claim a task before editing and complete it afterward. Claims arbitrate whole
   tasks; coordinate intended file scope explicitly because the schema does not
   enforce path ownership.
+- Run coordination commands through the absolute, non-editable operator wheel
+  runtime bound by `.agents/toolchain-lock.json`. Never execute a verifier or
+  coordination command from the repository or caller `PATH`.
 - Transfer durable execution state through immutable, task-scoped files under
   `.agents/handoffs/<task-id>/`; never use one mutable `LATEST.md`.
 - Never share a branch and working tree between concurrent writing sessions.
