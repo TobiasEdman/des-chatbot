@@ -1,21 +1,21 @@
 {
   "artifacts": [
     {
-      "after_sha256": "635c5ff84077a44f82c8a780e76d3edfaf0395b89d79901b717f1aa4d76cddc2",
+      "after_sha256": "6d6c4b3c7d51db188a48e84857659be5a4cec618a3784c6e31f65e669920b6de",
       "before_sha256": null,
       "kind": "file",
       "owned": true,
       "path": "AGENTS.md"
     },
     {
-      "after_sha256": "5b5b800b4eeb7a1b6d746495987cfc0007e19d45ce38252827fbb25d117ba122",
+      "after_sha256": "f128e854020031d0d2dd2817987231929df16dc1c210f5554cfceb21f4e30883",
       "before_sha256": null,
       "kind": "file",
       "owned": true,
       "path": "CLAUDE.md"
     },
     {
-      "after_sha256": "59ef92bba167614695916aa46c252194d39e6c869f250907ee01673bbc852068",
+      "after_sha256": "a42e68e9329efb1edaae33db6ac4e86080fbc167206e316ee2f343139302a671",
       "before_resource": "agents-readme-legacy-v2.md",
       "before_sha256": "a24b9a1ca78aa2d37a2ca1ebe0269fe576727b4cddd526c9c0dd1de27e25f0d2",
       "kind": "replace",
@@ -23,7 +23,7 @@
       "path": ".agents/README.md"
     },
     {
-      "after_sha256": "3979a5a7446596622ec7a8f2824b433aaee568ea8e08245c91e3a192fe06481f",
+      "after_sha256": "25e3e2211422a560381bf23b4364c8bdeccee46ec37e96bcf80bcd952dc809c4",
       "before_resource": "schema-installer-v1.json",
       "before_sha256": "3e0c5f42d05e87decc36fa234336f3c8d161489f09c818cb9bcd865d14f17894",
       "kind": "replace",
@@ -38,7 +38,7 @@
       "path": ".agents/tasks/.gitkeep"
     },
     {
-      "after_sha256": "4b04d30517d769c67039b2ae006dc9ec16c2dc186334f6525a8ce946f115eb43",
+      "after_sha256": "cc0bb7bafda1da5388a61563ef45b89a93f97fa1e149eecadb86d7eeece0e46c",
       "before_sha256": null,
       "kind": "file",
       "owned": true,
@@ -50,12 +50,19 @@
       "kind": "file",
       "owned": true,
       "path": ".agents/handoffs/.gitkeep"
+    },
+    {
+      "after_sha256": "f254e347071d396229c5e7c18849fc47c86b58da8e673d0bd7c7ec03bcfc44c3",
+      "before_sha256": null,
+      "kind": "file",
+      "owned": true,
+      "path": ".agents/toolchain-lock.json"
     }
   ],
   "created_directories": [
     ".agents/handoffs"
   ],
-  "installer_version": "3",
+  "installer_version": "4",
   "profile": "coordination",
   "schema_version": "1"
 }

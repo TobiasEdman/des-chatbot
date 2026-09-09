@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "agentic-task",
   "type": "object",
+  "additionalProperties": false,
   "required": [
     "id",
     "subject",
@@ -19,6 +20,128 @@
     },
     "description": {
       "type": "string"
+    },
+    "goal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "objective",
+        "scope",
+        "acceptance_criteria",
+        "non_goals",
+        "constraints"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1"
+        },
+        "objective": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048
+        },
+        "scope": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "acceptance_criteria": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "non_goals": {
+          "type": "array",
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "constraints": {
+          "type": "array",
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        }
+      }
+    },
+    "goal_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "writer_goal_acknowledgement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_id",
+        "runtime",
+        "vendor",
+        "goal_sha256",
+        "acknowledged_at"
+      ],
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "runtime": {
+          "enum": [
+            "claude",
+            "codex",
+            "mistral"
+          ]
+        },
+        "vendor": {
+          "enum": [
+            "anthropic",
+            "openai",
+            "mistral"
+          ]
+        },
+        "goal_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "acknowledged_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "escalation_reasons": {
+      "type": "array",
+      "maxItems": 6,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "agent_disagreement",
+          "ambiguous_goal",
+          "ambiguous_policy",
+          "destructive_action",
+          "public_publication",
+          "security_or_legal"
+        ]
+      }
     },
     "status": {
       "enum": [
@@ -51,7 +174,7 @@
         "null"
       ],
       "pattern": "^sha256:[0-9a-f]{64}$",
-      "description": "credential-free canonical remote identity from agentic-task authority"
+      "description": "repository discriminator: credential-free sha256 receipt of the canonical remote transport; names where claim arbitration happened and is not an authentication, attestation, or merge authority"
     },
     "claimed_at": {
       "type": [
@@ -101,5 +224,203 @@
       "type": "string",
       "format": "date-time"
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "goal"
+        ]
+      },
+      "then": {
+        "required": [
+          "goal_sha256"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "goal_sha256"
+        ]
+      },
+      "then": {
+        "required": [
+          "goal"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "pending"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "claimed_by": {
+            "type": "null"
+          },
+          "runtime": {
+            "type": "null"
+          },
+          "claimed_at": {
+            "type": "null"
+          },
+          "completed_at": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "claimed",
+              "in_progress"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "claimed_by",
+          "runtime",
+          "claimed_at"
+        ],
+        "properties": {
+          "claimed_by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "runtime": {
+            "enum": [
+              "claude",
+              "codex",
+              "mistral"
+            ]
+          },
+          "claimed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completed_at": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "completed"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "claimed_by",
+          "runtime",
+          "claimed_at",
+          "completed_at"
+        ],
+        "properties": {
+          "claimed_by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "runtime": {
+            "enum": [
+              "claude",
+              "codex",
+              "mistral"
+            ]
+          },
+          "claimed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completed_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "blocked",
+              "abandoned"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "completed_at": {
+            "type": "null"
+          }
+        },
+        "oneOf": [
+          {
+            "properties": {
+              "claimed_by": {
+                "type": "null"
+              },
+              "runtime": {
+                "type": "null"
+              },
+              "claimed_at": {
+                "type": "null"
+              }
+            }
+          },
+          {
+            "required": [
+              "claimed_by",
+              "runtime",
+              "claimed_at"
+            ],
+            "properties": {
+              "claimed_by": {
+                "type": "string",
+                "minLength": 1
+              },
+              "runtime": {
+                "enum": [
+                  "claude",
+                  "codex",
+                  "mistral"
+                ]
+              },
+              "claimed_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
 }
