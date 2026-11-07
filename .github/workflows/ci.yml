@@ -58,3 +58,6 @@ jobs:
           else
             echo "No backend/tests/ dir — skipping."
           fi
+
+      - name: Render Kubernetes manifests
+        run: kubectl kustomize k8s/ >/dev/null
